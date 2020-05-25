@@ -13,7 +13,7 @@ data:
    "password":"123456"
 }
 ```
-retponse:
+response:
 ```json
 {
     "user": {
@@ -62,7 +62,7 @@ data:
     }
 }
 ```
-retponse:
+response:
 ```json
 {
     "status":"success"
