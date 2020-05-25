@@ -14,7 +14,7 @@ data:
 }
 ```
 response:
-```json
+```
 {
     "user": {
         "prefix": null,
@@ -47,7 +47,7 @@ Content-Type  : application/json
 Authorization : Bearer <jwtToken>
 ```
 data:
-```json
+```
 {
     "idCard":"6966787259311",
     "score":100,
