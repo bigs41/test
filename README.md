@@ -58,7 +58,8 @@ data:
     "jsonDetail ":{
         "rawScore":100,
         "maxScore":100,
-        "testingAttemps":1
+        "testingAttemps":1,
+        ...
     }
 }
 ```
