@@ -70,9 +70,10 @@ retponse:
 ```
 Parameter    | Description
 ------------ | -----------
-username     | ชื่อ นามสกุล
-idCard       | เลขบัตรประชาชน
-score        | คะแนน(เปอร์เซ็น)
+idCard | เลขบัตรประชาชน
+score | คะแนน(เปอร์เซ็น)
 standardTest | ชื่อมาตรฐานการสอบ
-startDate    | วันเวลาที่เริ่ม
-endDate      | วันเวลาที่สิ้นสุด
+startDate | วันเวลาที่เริ่ม
+endDate | วันเวลาที่สิ้นสุด
+jsonDetail | ละเอียดการสอบ
+stationCode | รศูนย์สอบ
