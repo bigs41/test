@@ -52,7 +52,7 @@ data:
     "idCard":"6966787259311",
     "score":100,
     "stationCode":"IC30101",
-    "้standardTest":"IC3",
+    "standardTest":"IC3",
     "startDate":"2020-05-17 17:09:17",
     "endDate":"2020-05-17 17:09:17",
     "jsonDetail ":{
@@ -77,4 +77,4 @@ standardTest | ชื่อมาตรฐานการสอบ
 startDate | วันเวลาที่เริ่ม
 endDate | วันเวลาที่สิ้นสุด
 jsonDetail | ละเอียดการสอบ
-stationCode | รศูนย์สอบ
+stationCode | รหัสศูนย์สอบ
