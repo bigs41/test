@@ -49,12 +49,17 @@ Authorization : Bearer <jwtToken>
 data:
 ```json
 {
-    "username":"เพลินจิต เหมือนแพร",
     "idCard":"6966787259311",
     "score":100,
-    "standardTest":"IC3",
+    "stationCode":"IC30101",
+    "้standardTest":"IC3",
     "startDate":"2020-05-17 17:09:17",
-    "endDate":"2020-05-17 17:09:17"
+    "endDate":"2020-05-17 17:09:17",
+    "jsonDetail ":{
+        "rawScore":100,
+        "maxScore":100,
+        "testingAttemps":1
+    }
 }
 ```
 retponse:
