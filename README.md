@@ -68,5 +68,11 @@ response:
 redirect->page
 testing exam
 save
-redirect->https://{{YOUR_HOST}}/callback?exId={int}&name={str}&score=&{float}&transection={str}
+redirect->https://{{YOUR_HOST}}/callback?exId={int}&score=&{float}&transection={str}
 ```
+
+Parameter    | Description
+------------ | -----------
+exId | id ของ exam ทดสอบ
+score | คะแนนที่ทำได้
+transection | format timestam
