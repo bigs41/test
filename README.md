@@ -41,6 +41,7 @@ param:
 ```
 {
     "redirect":"https://{{YOUR_HOST}}/callback",
+    "email":"user@mail.com",
     "exId":1,
     "transection":"1590633393",
     "timeLimit":"1800"
@@ -49,6 +50,7 @@ param:
 Parameter    | Description
 ------------ | -----------
 redirect | url redirect กลับ
+email | email ผู้รับการทดสอบ
 exId | id ของ exam ที่ต้องการทำแบบทดสอบ
 transection | format timestam
 timeLimit | เวลาในการทำแบบทดสอบ / วินาที
