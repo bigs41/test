@@ -10,6 +10,7 @@ param:
 ```
 {
     "redirect":"https://{{YOUR_HOST}}/callback",
+    "googleID":"100184372264039063801",
     "exId":1,
     "transection":"1590633393"
 }
@@ -18,6 +19,7 @@ Parameter    | Description
 ------------ | -----------
 redirect | url redirect กลับ
 exId | id ของ exam ที่ต้องการแก้ไข or 0 สร้างใหม่
+googleID | googleID ผู้สร้างทดสอบ
 transection | format timestam
 
 response:
@@ -25,8 +27,14 @@ response:
 redirect->page
 create | edit exam
 save
-redirect->https://{{YOUR_HOST}}/callback?exId={int}&name={str}
+redirect->https://{{YOUR_HOST}}/callback?exId={int}&name={str}&transection={str}
 ```
+
+Parameter    | Description
+------------ | -----------
+exId | id ของ exam ที่แก้ไข or สร้างใหม่
+name | name ของ exam ที่แก้ไข or สร้างใหม่
+transection | format timestam
 ____
 
 >
@@ -41,7 +49,7 @@ param:
 ```
 {
     "redirect":"https://{{YOUR_HOST}}/callback",
-    "email":"user@mail.com",
+    "googleID":"100184372264039063801",
     "exId":1,
     "transection":"1590633393",
     "timeLimit":"1800"
@@ -50,7 +58,7 @@ param:
 Parameter    | Description
 ------------ | -----------
 redirect | url redirect กลับ
-email | email ผู้รับการทดสอบ
+googleID | googleID ผู้รับการทดสอบ
 exId | id ของ exam ที่ต้องการทำแบบทดสอบ
 transection | format timestam
 timeLimit | เวลาในการทำแบบทดสอบ / วินาที
@@ -60,5 +68,5 @@ response:
 redirect->page
 testing exam
 save
-redirect->https://{{YOUR_HOST}}/callback?exId={int}&name={str}&score=&{float}
+redirect->https://{{YOUR_HOST}}/callback?exId={int}&name={str}&score=&{float}&transection={str}
 ```
