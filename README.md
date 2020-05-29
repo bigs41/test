@@ -1,80 +1,62 @@
 >
-# login
+# Add or Edit Exam
 header:
 ```
-url : https://{{API_HOST}}/api/login/local
-method : POST
+url : https://{{API_HOST}}/api/exs/store
+method : GET
 Content-Type  : application/json
 ```
-data:
-```json
-{
-   "email":"user@mail.com",
-   "password":"123456"
-}
-```
-response:
+param:
 ```
 {
-    "user": {
-        "prefix": null,
-        "middlename": null,
-        "name": "Hayden",
-        "lastname": "Zieme",
-        "email": "user@mail.com",
-        "birthDate": "1982-02-04T00:00:00.000Z",
-        "positionCode": "00000",
-        "userType": "ครู",
-        "geolocation": {
-            "type": "Point",
-            "coordinates": [
-                17.2392,
-                99.2319
-            ]
-        }
-    },
-    "jwtToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNTkwMzc1NjE1fQ.67U5kS0gLBjYFyOqmuXnHppUtX9sYYzVJDVXJEk5p0M"
-}
-```
-------------------------------------------
->
-# add score
-header:
-```
-url : https://{{API_HOST}}/api/hrdc/addscore
-method : POST
-Content-Type  : application/json
-Authorization : Bearer <jwtToken>
-```
-data:
-```
-{
-    "idCard":"6966787259311",
-    "score":100,
-    "stationCode":"IC30101",
-    "standardTest":"IC3",
-    "startDate":"2020-05-17 17:09:17",
-    "endDate":"2020-05-17 17:09:17",
-    "jsonDetail ":{
-        "rawScore":100,
-        "maxScore":100,
-        "testingAttemps":1,
-        ...
-    }
-}
-```
-response:
-```json
-{
-    "status":"success"
+    "redirect":"https://{{YOUR_HOST}}/callback",
+    "exId":1,
+    "transection":"1590633393"
 }
 ```
 Parameter    | Description
 ------------ | -----------
-idCard | เลขบัตรประชาชน
-score | คะแนน(เปอร์เซ็น)
-standardTest | ชื่อมาตรฐานการสอบ
-startDate | วันเวลาที่เริ่ม
-endDate | วันเวลาที่สิ้นสุด
-jsonDetail | ละเอียดการสอบ
-stationCode | รหัสศูนย์สอบ
+redirect | url redirect กลับ
+exId | id ของ exam ที่ต้องการแก้ไข or 0 สร้างใหม่
+transection | format timestam
+
+response:
+```
+redirect->page
+create | edit exam
+save
+redirect->https://{{YOUR_HOST}}/callback?exId={int}&name={str}
+```
+____
+
+>
+# testing
+header:
+```
+url : https://{{API_HOST}}/api/exs/user
+method : GET
+Content-Type  : application/json
+```
+param:
+```
+{
+    "redirect":"https://{{YOUR_HOST}}/callback",
+    "exId":1,
+    "transection":"1590633393",
+    "timeLimit":"1800"
+}
+```
+Parameter    | Description
+------------ | -----------
+redirect | url redirect กลับ
+exId | id ของ exam ที่ต้องการทำแบบทดสอบ
+transection | format timestam
+timeLimit | เวลาในการทำแบบทดสอบ / วินาที
+
+response:
+```
+redirect->page
+testing exam
+save
+redirect->https://{{YOUR_HOST}}/callback?exId={int}&name={str}&score=&{float}
+```
