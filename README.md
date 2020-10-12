@@ -11,28 +11,51 @@ Authorization    Bearer <access_token>
 ```
 
 
-## 1. ex
+## 1. api
 
 
 
-### 1.1. createEx
+### 1.1. /api/content/excel
 ```
-GET https://www.example.com/api/exs/store
+POST https://:host/api/content/excel
 ```
 ```
-Accept:*/*
+Content-Type: multipart/form-data
 ```
-params
+```
+อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel
+```
 
-| key | value |
+| key | type |
 |--|--|
-redirect | {}
-transection | {}
-exId | {}
+file_upload | file
 
-example
+ดาวน์โหลด ไฟล์รูปแบบ
+https://skill.deep.go.th/api/content/excel-format
+
+status 200
+```json
+{
+    "code": 200,
+    "status": "success",
+    "list": [
+        {
+            "exId": 221,
+            "name": "AMSF"
+        }
+    ]
+}
 ```
-https://www.example.com/api/exs/store?redirect=%7B%7D&transection=%7B%7D&exId=%7B%7D
+
+---
+
+## 2. exs
+
+
+
+### 2.1. /api/exs/store
+```
+GET https://:host/api/exs/store?redirect=<string>&transection=<string>&exId=<number>
 ```
 ```
 สร้างแบบทดสอบ
@@ -59,26 +82,9 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ---
 
-### 1.2. testingEx
+### 2.2. /api/exs/user
 ```
-GET https://www.example.com/api/exs/user
-```
-```
-Accept:*/*
-```
-params
-
-| key | value |
-|--|--|
-redirect | {}
-transection | {}
-timeLimit | {}
-exId | {}
-passScore | {}
-
-example
-```
-https://www.example.com/api/exs/user?redirect=%7B%7D&transection=%7B%7D&timeLimit=%7B%7D&exId=%7B%7D&passScore=%7B%7D
+GET {{baseUrl}}/api/exs/user?redirect=<string>&transection=<string>&timeLimit=<string>&exId=<number>&passScore=<number>
 ```
 ```
 redirect ทำแบบทดสอบ
@@ -122,23 +128,9 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ---
 
-### 1.3. getLogดูแบบฝึกหัดย้อยหลัง
+### 2.3. /api/exs/log
 ```
-GET https://www.example.com/api/exs/log
-```
-```
-Accept:*/*
-```
-params
-
-| key | value |
-|--|--|
-code | {}
-transection | {}
-
-example
-```
-https://www.example.com/api/exs/log?code=%7B%7D&transection=%7B%7D
+GET https://:host/api/exs/log?code=<string>&transection=<string>
 ```
 ```
 get Log ดูแบบฝึกหัดย้อยหลัง
@@ -146,12 +138,9 @@ get Log ดูแบบฝึกหัดย้อยหลัง
 
 ---
 
-### 1.4. getReport
+### 2.4. /api/exs/report/{idEx}
 ```
-GET https://www.example.com/api/exs/report/:idEx
-```
-```
-Accept:*/*
+GET https://:host/api/exs/report/:idEx
 ```
 ```
 สรุปผลแบบทดสอบ
@@ -159,50 +148,40 @@ Accept:*/*
 
 ---
 
-### 1.5. importexcel
+## 3. notifications
+
+
+
+### 3.1. /notifications
 ```
-POST https://www.example.com/api/content/excel
-```
-```
-Accept:*/*
-```
-```
-อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel
+GET {{baseUrl}}/api/notifications?search=schema type not provided&limit=schema type not provided&search_fields=schema type not provided&order_by=schema type not provided&before=<string>&where=schema type not provided
 ```
 
-| key | type |
-|--|--|
-file_upload | file
-
-ดาวน์โหลด ไฟล์รูปแบบ
-https://skill.deep.go.th/api/content/excel-format
-
-status 200
-```json
-{
-    "code": 200,
-    "status": "success",
-    "list": [
-        {
-            "exId": 221,
-            "name": "AMSF"
-        }
-    ]
-}
-```
 
 ---
 
-## 2. notification
-
-
-
-### 2.1. /notifications/unread-count
+### 3.2. /notifications
 ```
-GET https://www.example.com/api/notifications/unread-count
+POST {{baseUrl}}/api/notifications
 ```
 ```
-Accept:*/*
+Content-Type: application/json
+```
+
+
+---
+
+### 3.3. /notifications
+```
+DELETE {{baseUrl}}/api/notifications?notiId=schema type not provided
+```
+
+
+---
+
+### 3.4. /notifications/unread-count
+```
+GET {{baseUrl}}/api/notifications/unread-count
 ```
 ```
 เรียกข้อมูล notification ที่ยังไม่ได้อ่าน
@@ -210,12 +189,9 @@ Accept:*/*
 
 ---
 
-### 2.2. /notifications/read
+### 3.5. /notifications/read
 ```
-PATCH https://www.example.com/api/notifications/read?notiId=%7B%7D
-```
-```
-Accept:*/*
+PATCH {{baseUrl}}/api/notifications/read?notiId=<string>
 ```
 ```
 update สถานะ notification ว่าอ่านแล้ว
@@ -223,12 +199,12 @@ update สถานะ notification ว่าอ่านแล้ว
 
 ---
 
-### 2.3. /notifications/:id
+### 3.6. /notifications/:id
 ```
-PUT https://www.example.com/api/notifications/:id
+PUT {{baseUrl}}/api/notifications/:id
 ```
 ```
-Accept:*/*
+Content-Type: application/json
 ```
 ```
 update notification
@@ -236,79 +212,13 @@ update notification
 
 ---
 
-### 2.4. /notifications
-```
-GET https://www.example.com/api/notifications
-```
-```
-Accept:*/*
-```
-params
-
-| key | value |
-|--|--|
-search | {}
-limit | {}
-search_fields | {}
-order_by | {}
-before | {}
-where | {}
-
-example
-```
-https://www.example.com/api/notifications?search=%7B%7D&limit=%7B%7D&search_fields=%7B%7D&order_by=%7B%7D&before=%7B%7D&where=%7B%7D
-```
-/notifications
-
----
-
-### 2.5. /notifications
-```
-POST https://www.example.com/api/notifications
-```
-```
-Accept:*/*
-```
-/notifications
-
----
-
-### 2.6. /notifications
-```
-DELETE https://www.example.com/api/notifications?notiId=%7B%7D
-```
-```
-Accept:*/*
-```
-/notifications
-
----
-
-## 3. subject
+## 4. subjects
 
 
 
-### 3.1. user
+### 4.1. /api/subjects/user
 ```
-GET https://www.example.com/api/subjects/user
-```
-```
-Accept:*/*
-```
-params
-
-| key | value |
-|--|--|
-citizen_id | {}
-filter | {}
-limit | {}
-page | {}
-where | {}
-order_by | {}
-
-example
-```
-https://www.example.com/api/subjects/user?citizen_id=%7B%7D&filter=%7B%7D&limit=%7B%7D&page=%7B%7D&where=%7B%7D&order_by=%7B%7D
+GET {{baseUrl}}/api/subjects/user?citizen_id=<number>&filter=<string>&limit=<number>&page=<number>&where=<string>&order_by=<string>
 ```
 description
 ```
@@ -328,26 +238,9 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 3.2. list
+### 4.2. /api/subjects/list
 ```
-GET https://www.example.com/api/subjects/list
-```
-```
-Accept:*/*
-```
-params
-
-| key | value |
-|--|--|
-filter | {}
-limit | {}
-page | {}
-where | {}
-order_by | {}
-
-example
-```
-https://www.example.com/api/subjects/list?filter=%7B%7D&limit=%7B%7D&page=%7B%7D&where=%7B%7D&order_by=%7B%7D
+GET {{baseUrl}}/api/subjects/list?filter=<string>&limit=<number>&page=<number>&where=<string>&order_by=<string>
 ```
 description
 ```
@@ -365,27 +258,9 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 3.3. user-list
+### 4.3. /api/subjects/user-list
 ```
-GET https://www.example.com/api/subjects/user-list
-```
-```
-Accept:application/json
-```
-params
-
-| key | value |
-|--|--|
-citizen_id | {}
-filter | {}
-limit | {}
-page | {}
-where | {}
-order_by | {}
-
-example
-```
-https://www.example.com/api/subjects/user-list?citizen_id=%7B%7D&filter=%7B%7D&limit=%7B%7D&page=%7B%7D&where=%7B%7D&order_by=%7B%7D
+GET {{baseUrl}}/api/subjects/user-list?citizen_id=<number>&filter=<string>&limit=<number>&page=<number>&where=<string>&order_by=<string>
 ```
 description
 ```
