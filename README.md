@@ -1,4 +1,4 @@
-# testEx Copy
+# API Document Deep1
 description
 ```
 ในกรณีที่เรียกจากฝั่ง server
@@ -17,7 +17,7 @@ Authorization    Bearer <access_token>
 
 ### 1.1. createEx
 ```
-GET https://skill.deep.go.th/api/exs/store
+GET https://www.example.com/api/exs/store
 ```
 ```
 Accept:*/*
@@ -26,13 +26,16 @@ params
 
 | key | value |
 |--|--|
-redirect | {{url_redirect}}
-transection | {{transection}}
-exId | 74.4437041084486
+redirect | {}
+transection | {}
+exId | {}
 
 example
 ```
-https://skill.deep.go.th/api/exs/store?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&exId=74.4437041084486
+https://www.example.com/api/exs/store?redirect=%7B%7D&transection=%7B%7D&exId=%7B%7D
+```
+```
+สร้างแบบทดสอบ
 ```
 | | |
 |--|--|
@@ -58,7 +61,7 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ### 1.2. testingEx
 ```
-GET https://skill.deep.go.th/api/exs/user
+GET https://www.example.com/api/exs/user
 ```
 ```
 Accept:*/*
@@ -67,16 +70,20 @@ params
 
 | key | value |
 |--|--|
-redirect | {{url_redirect}}
-transection | {{transection}}
-timeLimit | {{secondTime}}
-exId | 74.4437041084486
-passScore | 74.4437041084486
+redirect | {}
+transection | {}
+timeLimit | {}
+exId | {}
+passScore | {}
 
 example
 ```
-https://skill.deep.go.th/api/exs/user?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&timeLimit=%7B%7BsecondTime%7D%7D&exId=74.4437041084486&passScore=74.4437041084486
+https://www.example.com/api/exs/user?redirect=%7B%7D&transection=%7B%7D&timeLimit=%7B%7D&exId=%7B%7D&passScore=%7B%7D
 ```
+```
+redirect ทำแบบทดสอบ
+```
+
 | | |
 |--|--|
 1 | redirect มาที่ `{{url_deep}}`/api/exs/user?redirect=`{{url_redirect}}`&transection=`{{transection}}`&timeLimit=`{{secondTime}}`&exId=`1`&passScore=`50`
@@ -117,7 +124,7 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ### 1.3. getLogดูแบบฝึกหัดย้อยหลัง
 ```
-GET https://skill.deep.go.th/api/exs/log
+GET https://www.example.com/api/exs/log
 ```
 ```
 Accept:*/*
@@ -126,35 +133,43 @@ params
 
 | key | value |
 |--|--|
-code | {{code}}
-transection | {{transection}}
+code | {}
+transection | {}
 
 example
 ```
-https://skill.deep.go.th/api/exs/log?code=%7B%7Bcode%7D%7D&transection=%7B%7Btransection%7D%7D
+https://www.example.com/api/exs/log?code=%7B%7D&transection=%7B%7D
+```
 ```
 get Log ดูแบบฝึกหัดย้อยหลัง
+```
 
 ---
 
 ### 1.4. getReport
 ```
-GET https://skill.deep.go.th/api/exs/report/:idEx
+GET https://www.example.com/api/exs/report/:idEx
 ```
 ```
 Accept:*/*
 ```
-get Report
+```
+สรุปผลแบบทดสอบ
+```
 
 ---
 
 ### 1.5. importexcel
 ```
-POST https://skill.deep.go.th/api/content/excel
+POST https://www.example.com/api/content/excel
 ```
 ```
 Accept:*/*
 ```
+```
+อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel
+```
+
 | key | type |
 |--|--|
 file_upload | file
@@ -178,78 +193,55 @@ status 200
 
 ---
 
-## 2. account
+## 2. notification
 
 
 
-### 2.1. register
+### 2.1. /notifications/unread-count
 ```
-POST https://skill.deep.go.th/api/account
-```
-```
-Accept:*/*
-Content-Type:text/plain
-```
-
-หลังจาก มีการ register เสร็จ
-ส่งข้อมูล account เพื่อบันทึกข้อมูล
-
----
-response
-
-```json
-{
-    "code": 200,
-    "status": "success"
-}
-```
-
----
-
-## 3. notification
-
-
-
-### 3.1. /notifications/unread-count
-```
-GET https://skill.deep.go.th/api/notifications/unread-count
-```
-```
-Accept:application/json
-```
-/notifications/unread-count
-
----
-
-### 3.2. /notifications/read
-```
-PATCH https://skill.deep.go.th/api/notifications/read?notiId=notiId8
+GET https://www.example.com/api/notifications/unread-count
 ```
 ```
 Accept:*/*
 ```
-/notifications/read
+```
+เรียกข้อมูล notification ที่ยังไม่ได้อ่าน
+```
 
 ---
 
-### 3.3. /notifications/:id
+### 2.2. /notifications/read
 ```
-PUT https://skill.deep.go.th/api/notifications/:id
+PATCH https://www.example.com/api/notifications/read?notiId=%7B%7D
 ```
 ```
-Accept:application/json
-Content-Type:application/json
+Accept:*/*
 ```
-/notifications/:id
+```
+update สถานะ notification ว่าอ่านแล้ว
+```
 
 ---
 
-### 3.4. /notifications
+### 2.3. /notifications/:id
 ```
-GET https://skill.deep.go.th/api/notifications
+PUT https://www.example.com/api/notifications/:id
 ```
 ```
-Accept:application/json
+Accept:*/*
+```
+```
+update notification
+```
+
+---
+
+### 2.4. /notifications
+```
+GET https://www.example.com/api/notifications
+```
+```
+Accept:*/*
 ```
 params
 
@@ -257,49 +249,48 @@ params
 |--|--|
 search | {}
 limit | {}
-search_fields | message,userId
-order_by | -updatedAt
-before | before8
+search_fields | {}
+order_by | {}
+before | {}
 where | {}
 
 example
 ```
-https://skill.deep.go.th/api/notifications?search=%7B%7D&limit=%7B%7D&search_fields=message%2CuserId&order_by=-updatedAt&before=before8&where=%7B%7D
+https://www.example.com/api/notifications?search=%7B%7D&limit=%7B%7D&search_fields=%7B%7D&order_by=%7B%7D&before=%7B%7D&where=%7B%7D
 ```
 /notifications
 
 ---
 
-### 3.5. /notifications
+### 2.5. /notifications
 ```
-POST https://skill.deep.go.th/api/notifications
+POST https://www.example.com/api/notifications
 ```
 ```
 Accept:*/*
-Content-Type:application/json
 ```
 /notifications
 
 ---
 
-### 3.6. /notifications
+### 2.6. /notifications
 ```
-DELETE https://skill.deep.go.th/api/notifications?notiId=%7B%7D
+DELETE https://www.example.com/api/notifications?notiId=%7B%7D
 ```
 ```
-Accept:Text
+Accept:*/*
 ```
 /notifications
 
 ---
 
-## 4. subject
+## 3. subject
 
 
 
-### 4.1. user
+### 3.1. user
 ```
-GET https://skill.deep.go.th/api/subjects/user
+GET https://www.example.com/api/subjects/user
 ```
 ```
 Accept:*/*
@@ -308,20 +299,20 @@ params
 
 | key | value |
 |--|--|
-citizen_id | 74.4437041084486
-filter | {"subject.name":"POD"}
-limit | 74.4437041084486
-page | 74.4437041084486
-where | {"subject.subjectId":{"<>":430}}
-order_by | createdBy,-detail.userSubjectId
+citizen_id | {}
+filter | {}
+limit | {}
+page | {}
+where | {}
+order_by | {}
 
 example
 ```
-https://skill.deep.go.th/api/subjects/user?citizen_id=74.4437041084486&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=74.4437041084486&page=74.4437041084486&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
+https://www.example.com/api/subjects/user?citizen_id=%7B%7D&filter=%7B%7D&limit=%7B%7D&page=%7B%7D&where=%7B%7D&order_by=%7B%7D
 ```
 description
 ```
-api ข้อมูลการเรียนรายบุคล
+เรียกข้อมูลวิชา ของผู้เรียน
 ```
 params
 
@@ -337,9 +328,9 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 4.2. list
+### 3.2. list
 ```
-GET https://skill.deep.go.th/api/subjects/list
+GET https://www.example.com/api/subjects/list
 ```
 ```
 Accept:*/*
@@ -348,19 +339,19 @@ params
 
 | key | value |
 |--|--|
-filter | {"subject.name":"POD"}
-limit | 74.4437041084486
-page | 74.4437041084486
-where | {"subject.subjectId":{"<>":430}}
-order_by | createdBy,-detail.userSubjectId
+filter | {}
+limit | {}
+page | {}
+where | {}
+order_by | {}
 
 example
 ```
-https://skill.deep.go.th/api/subjects/list?filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=74.4437041084486&page=74.4437041084486&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
+https://www.example.com/api/subjects/list?filter=%7B%7D&limit=%7B%7D&page=%7B%7D&where=%7B%7D&order_by=%7B%7D
 ```
 description
 ```
-api ข้อมูลวิชา
+เรียกข้อมูล วิชา
 ```
 params
 
@@ -374,37 +365,37 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 4.3. user-list
+### 3.3. user-list
 ```
-GET https://skill.deep.go.th/api/subjects/user-list
+GET https://www.example.com/api/subjects/user-list
 ```
 ```
-Accept:*/*
+Accept:application/json
 ```
 params
 
 | key | value |
 |--|--|
-citizen_id | 74.4437041084486
-filter | {"subject.name":"POD"}
-limit | 74.4437041084486
-page | 74.4437041084486
-where | {"subject.detail.subjectId":{"<>":430}}
-order_by | name
+citizen_id | {}
+filter | {}
+limit | {}
+page | {}
+where | {}
+order_by | {}
 
 example
 ```
-https://skill.deep.go.th/api/subjects/user-list?citizen_id=74.4437041084486&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=74.4437041084486&page=74.4437041084486&where=%7B%22subject.detail.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=name
+https://www.example.com/api/subjects/user-list?citizen_id=%7B%7D&filter=%7B%7D&limit=%7B%7D&page=%7B%7D&where=%7B%7D&order_by=%7B%7D
 ```
 description
 ```
-api ข้อมูลการเรียนรายบุคลแบบหลายคน
+เรียกข้อมูลวิชา ของผู้เรียน (หลายคน)
 ```
 params
 
 | key | required | description | example
 --|--|--|--
-citizen_id | true | เลขบัตรประจำตัว | 2151321154118
+citizen_id | true | เลขบัตรประจำตัว | 2151321154118,1524896358411
 filter | false | ใช้ค้นหา | {"name":"POD"}
 limit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10
 page | false | เลขหน้าลิสข้อมูล | 1
@@ -413,3 +404,4 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 
 ---
+
