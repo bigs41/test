@@ -428,7 +428,5 @@ limit | false | กำหนดจำนวนข้อมูลต่อ หน
 page | false | เลขหน้าลิสข้อมูล | 1
 order_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId
 
-
-
 ---
 
