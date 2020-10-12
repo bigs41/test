@@ -15,7 +15,7 @@ Authorization    Bearer <access_token>
 
 
 
-### 1.1. createEx
+### 1.1. สร้างแบบทดสอบ
 ```
 GET https://skill.deep.go.th/api/exs/store
 ```
@@ -28,11 +28,11 @@ params
 |--|--|
 redirect | {{url_redirect}}
 transection | {{transection}}
-exId | 63.9783504390988
+exId | 77.3324035095668
 
 example
 ```
-https://skill.deep.go.th/api/exs/store?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&exId=63.9783504390988
+https://skill.deep.go.th/api/exs/store?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&exId=77.3324035095668
 ```
 ```
 สร้างแบบทดสอบ
@@ -59,7 +59,7 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ---
 
-### 1.2. testingEx
+### 1.2. redirect ทำแบบทดสอบ
 ```
 GET https://skill.deep.go.th/api/exs/user
 ```
@@ -73,12 +73,12 @@ params
 redirect | {{url_redirect}}
 transection | {{transection}}
 timeLimit | {{secondTime}}
-exId | 63.9783504390988
-passScore | 63.9783504390988
+exId | 77.3324035095668
+passScore | 77.3324035095668
 
 example
 ```
-https://skill.deep.go.th/api/exs/user?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&timeLimit=%7B%7BsecondTime%7D%7D&exId=63.9783504390988&passScore=63.9783504390988
+https://skill.deep.go.th/api/exs/user?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&timeLimit=%7B%7BsecondTime%7D%7D&exId=77.3324035095668&passScore=77.3324035095668
 ```
 ```
 redirect ทำแบบทดสอบ
@@ -122,7 +122,7 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ---
 
-### 1.3. getLogดูแบบฝึกหัดย้อยหลัง
+### 1.3. get Log ดูแบบฝึกหัดย้อยหล
 ```
 GET https://skill.deep.go.th/api/exs/log
 ```
@@ -146,7 +146,7 @@ get Log ดูแบบฝึกหัดย้อยหลัง
 
 ---
 
-### 1.4. getReport
+### 1.4. สรุปผลแบบทดสอบ
 ```
 GET https://skill.deep.go.th/api/exs/report/:idEx
 ```
@@ -159,7 +159,7 @@ Accept:*/*
 
 ---
 
-### 1.5. importexcel
+### 1.5. อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel
 ```
 POST https://skill.deep.go.th/api/content/excel
 ```
@@ -197,7 +197,7 @@ status 200
 
 
 
-### 2.1. /notifications/unread-count
+### 2.1. เรียกข้อมูล notification ที่ยังไม่ไ
 ```
 GET https://skill.deep.go.th/api/notifications/unread-count
 ```
@@ -210,9 +210,9 @@ Accept:application/json
 
 ---
 
-### 2.2. /notifications/read
+### 2.2. update สถานะ notification ว่าอ่านแ
 ```
-PATCH https://skill.deep.go.th/api/notifications/read?notiId=notiId4
+PATCH https://skill.deep.go.th/api/notifications/read?notiId=notiId70
 ```
 ```
 Accept:*/*
@@ -223,7 +223,7 @@ update สถานะ notification ว่าอ่านแล้ว
 
 ---
 
-### 2.3. /notifications/:id
+### 2.3. update notification
 ```
 PUT https://skill.deep.go.th/api/notifications/:id
 ```
@@ -237,7 +237,7 @@ update notification
 
 ---
 
-### 2.4. /notifications
+### 2.4. เรียกข้อมูล notification
 ```
 GET https://skill.deep.go.th/api/notifications
 ```
@@ -252,12 +252,12 @@ search | {}
 limit | {}
 search_fields | message,userId
 order_by | -updatedAt
-before | before4
+before | before70
 where | {}
 
 example
 ```
-https://skill.deep.go.th/api/notifications?search=%7B%7D&limit=%7B%7D&search_fields=message%2CuserId&order_by=-updatedAt&before=before4&where=%7B%7D
+https://skill.deep.go.th/api/notifications?search=%7B%7D&limit=%7B%7D&search_fields=message%2CuserId&order_by=-updatedAt&before=before70&where=%7B%7D
 ```
 /notifications
 
@@ -290,7 +290,7 @@ Accept:Text
 
 
 
-### 3.1. user
+### 3.1. เรียกข้อมูลวิชา ของผู้
 ```
 GET https://skill.deep.go.th/api/subjects/user
 ```
@@ -301,16 +301,16 @@ params
 
 | key | value |
 |--|--|
-citizen_id | 155.473632330761
+citizen_id | 77.3324035095668
 filter | {"subject.name":"POD"}
-limit | 155.473632330761
-page | 155.473632330761
+limit | 77.3324035095668
+page | 77.3324035095668
 where | {"subject.subjectId":{"<>":430}}
 order_by | createdBy,-detail.userSubjectId
 
 example
 ```
-https://skill.deep.go.th/api/subjects/user?citizen_id=155.473632330761&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=155.473632330761&page=155.473632330761&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
+https://skill.deep.go.th/api/subjects/user?citizen_id=77.3324035095668&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=77.3324035095668&page=77.3324035095668&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
 ```
 description
 ```
@@ -342,14 +342,14 @@ params
 | key | value |
 |--|--|
 filter | {"subject.name":"POD"}
-limit | 155.473632330761
-page | 155.473632330761
+limit | 77.3324035095668
+page | 77.3324035095668
 where | {"subject.subjectId":{"<>":430}}
 order_by | createdBy,-detail.userSubjectId
 
 example
 ```
-https://skill.deep.go.th/api/subjects/list?filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=155.473632330761&page=155.473632330761&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
+https://skill.deep.go.th/api/subjects/list?filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=77.3324035095668&page=77.3324035095668&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
 ```
 description
 ```
@@ -367,7 +367,7 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 3.3. user-list
+### 3.3. เรียกข้อมูลวิชา ของผู้เรียน (หล1
 ```
 GET https://skill.deep.go.th/api/subjects/user-list
 ```
@@ -378,16 +378,16 @@ params
 
 | key | value |
 |--|--|
-citizen_id | 155.473632330761
+citizen_id | 77.3324035095668
 filter | {"subject.name":"POD"}
-limit | 155.473632330761
-page | 155.473632330761
+limit | 77.3324035095668
+page | 77.3324035095668
 where | {"subject.detail.subjectId":{"<>":430}}
 order_by | name
 
 example
 ```
-https://skill.deep.go.th/api/subjects/user-list?citizen_id=155.473632330761&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=155.473632330761&page=155.473632330761&where=%7B%22subject.detail.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=name
+https://skill.deep.go.th/api/subjects/user-list?citizen_id=77.3324035095668&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=77.3324035095668&page=77.3324035095668&where=%7B%22subject.detail.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=name
 ```
 description
 ```
@@ -406,3 +406,4 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 
 ---
+
