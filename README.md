@@ -144,15 +144,6 @@ GET https://skill.deep.go.th/api/exs/report/:idEx
 ```
 Accept:*/*
 ```
-params
-
-| key | value |
-|--|--|
-
-example
-```
-https://skill.deep.go.th/api/exs/report/:idEx
-```
 get Report
 
 ---
@@ -225,15 +216,6 @@ GET https://skill.deep.go.th/api/notifications/unread-count
 ```
 ```
 Accept:application/json
-```
-params
-
-| key | value |
-|--|--|
-
-example
-```
-https://skill.deep.go.th/api/notifications/unread-count
 ```
 /notifications/unread-count
 
@@ -427,6 +409,8 @@ filter | false | ใช้ค้นหา | {"name":"POD"}
 limit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10
 page | false | เลขหน้าลิสข้อมูล | 1
 order_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId
+
+
 
 ---
 
