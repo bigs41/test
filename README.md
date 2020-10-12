@@ -197,7 +197,7 @@ status 200
 
 
 
-### 2.1. เรียกข้อมูล notification ที่ยังไม่ไ
+### 2.1. เรียกข้อมูล notification ที่ยังไม่ได้อ่าน
 ```
 GET https://skill.deep.go.th/api/notifications/unread-count
 ```
@@ -367,7 +367,7 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 3.3. เรียกข้อมูลวิชา ของผู้เรียน (หล1
+### 3.3. เรียกข้อมูลวิชา ของผู้เรียน (หลายคน)
 ```
 GET https://skill.deep.go.th/api/subjects/user-list
 ```
