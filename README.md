@@ -11,51 +11,28 @@ Authorization    Bearer <access_token>
 ```
 
 
-## 1. api
+## 1. ex
 
 
 
-### 1.1. /api/content/excel
+### 1.1. createEx
 ```
-POST https://:host/api/content/excel
-```
-```
-Content-Type: multipart/form-data
+GET https://skill.deep.go.th/api/exs/store
 ```
 ```
-อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel
+Accept:*/*
 ```
+params
 
-| key | type |
+| key | value |
 |--|--|
-file_upload | file
+redirect | {{url_redirect}}
+transection | {{transection}}
+exId | 63.9783504390988
 
-ดาวน์โหลด ไฟล์รูปแบบ
-https://skill.deep.go.th/api/content/excel-format
-
-status 200
-```json
-{
-    "code": 200,
-    "status": "success",
-    "list": [
-        {
-            "exId": 221,
-            "name": "AMSF"
-        }
-    ]
-}
+example
 ```
-
----
-
-## 2. exs
-
-
-
-### 2.1. /api/exs/store
-```
-GET https://:host/api/exs/store?redirect=<string>&transection=<string>&exId=<number>
+https://skill.deep.go.th/api/exs/store?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&exId=63.9783504390988
 ```
 ```
 สร้างแบบทดสอบ
@@ -82,9 +59,26 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ---
 
-### 2.2. /api/exs/user
+### 1.2. testingEx
 ```
-GET {{baseUrl}}/api/exs/user?redirect=<string>&transection=<string>&timeLimit=<string>&exId=<number>&passScore=<number>
+GET https://skill.deep.go.th/api/exs/user
+```
+```
+Accept:*/*
+```
+params
+
+| key | value |
+|--|--|
+redirect | {{url_redirect}}
+transection | {{transection}}
+timeLimit | {{secondTime}}
+exId | 63.9783504390988
+passScore | 63.9783504390988
+
+example
+```
+https://skill.deep.go.th/api/exs/user?redirect=%7B%7Burl_redirect%7D%7D&transection=%7B%7Btransection%7D%7D&timeLimit=%7B%7BsecondTime%7D%7D&exId=63.9783504390988&passScore=63.9783504390988
 ```
 ```
 redirect ทำแบบทดสอบ
@@ -128,9 +122,23 @@ Authorization | Barer `USER_ACCESS_TOKEN`
 
 ---
 
-### 2.3. /api/exs/log
+### 1.3. getLogดูแบบฝึกหัดย้อยหลัง
 ```
-GET https://:host/api/exs/log?code=<string>&transection=<string>
+GET https://skill.deep.go.th/api/exs/log
+```
+```
+Accept:*/*
+```
+params
+
+| key | value |
+|--|--|
+code | {{code}}
+transection | {{transection}}
+
+example
+```
+https://skill.deep.go.th/api/exs/log?code=%7B%7Bcode%7D%7D&transection=%7B%7Btransection%7D%7D
 ```
 ```
 get Log ดูแบบฝึกหัดย้อยหลัง
@@ -138,9 +146,12 @@ get Log ดูแบบฝึกหัดย้อยหลัง
 
 ---
 
-### 2.4. /api/exs/report/{idEx}
+### 1.4. getReport
 ```
-GET https://:host/api/exs/report/:idEx
+GET https://skill.deep.go.th/api/exs/report/:idEx
+```
+```
+Accept:*/*
 ```
 ```
 สรุปผลแบบทดสอบ
@@ -148,40 +159,50 @@ GET https://:host/api/exs/report/:idEx
 
 ---
 
-## 3. notifications
-
-
-
-### 3.1. /notifications
+### 1.5. importexcel
 ```
-GET {{baseUrl}}/api/notifications?search=schema type not provided&limit=schema type not provided&search_fields=schema type not provided&order_by=schema type not provided&before=<string>&where=schema type not provided
+POST https://skill.deep.go.th/api/content/excel
+```
+```
+Accept:*/*
+```
+```
+อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel
 ```
 
+| key | type |
+|--|--|
+file_upload | file
+
+ดาวน์โหลด ไฟล์รูปแบบ
+https://skill.deep.go.th/api/content/excel-format
+
+status 200
+```json
+{
+    "code": 200,
+    "status": "success",
+    "list": [
+        {
+            "exId": 221,
+            "name": "AMSF"
+        }
+    ]
+}
+```
 
 ---
 
-### 3.2. /notifications
-```
-POST {{baseUrl}}/api/notifications
-```
-```
-Content-Type: application/json
-```
+## 2. notification
 
 
----
 
-### 3.3. /notifications
+### 2.1. /notifications/unread-count
 ```
-DELETE {{baseUrl}}/api/notifications?notiId=schema type not provided
+GET https://skill.deep.go.th/api/notifications/unread-count
 ```
-
-
----
-
-### 3.4. /notifications/unread-count
 ```
-GET {{baseUrl}}/api/notifications/unread-count
+Accept:application/json
 ```
 ```
 เรียกข้อมูล notification ที่ยังไม่ได้อ่าน
@@ -189,9 +210,12 @@ GET {{baseUrl}}/api/notifications/unread-count
 
 ---
 
-### 3.5. /notifications/read
+### 2.2. /notifications/read
 ```
-PATCH {{baseUrl}}/api/notifications/read?notiId=<string>
+PATCH https://skill.deep.go.th/api/notifications/read?notiId=notiId4
+```
+```
+Accept:*/*
 ```
 ```
 update สถานะ notification ว่าอ่านแล้ว
@@ -199,12 +223,13 @@ update สถานะ notification ว่าอ่านแล้ว
 
 ---
 
-### 3.6. /notifications/:id
+### 2.3. /notifications/:id
 ```
-PUT {{baseUrl}}/api/notifications/:id
+PUT https://skill.deep.go.th/api/notifications/:id
 ```
 ```
-Content-Type: application/json
+Accept:application/json
+Content-Type:application/json
 ```
 ```
 update notification
@@ -212,13 +237,80 @@ update notification
 
 ---
 
-## 4. subjects
-
-
-
-### 4.1. /api/subjects/user
+### 2.4. /notifications
 ```
-GET {{baseUrl}}/api/subjects/user?citizen_id=<number>&filter=<string>&limit=<number>&page=<number>&where=<string>&order_by=<string>
+GET https://skill.deep.go.th/api/notifications
+```
+```
+Accept:application/json
+```
+params
+
+| key | value |
+|--|--|
+search | {}
+limit | {}
+search_fields | message,userId
+order_by | -updatedAt
+before | before4
+where | {}
+
+example
+```
+https://skill.deep.go.th/api/notifications?search=%7B%7D&limit=%7B%7D&search_fields=message%2CuserId&order_by=-updatedAt&before=before4&where=%7B%7D
+```
+/notifications
+
+---
+
+### 2.5. /notifications
+```
+POST https://skill.deep.go.th/api/notifications
+```
+```
+Accept:*/*
+Content-Type:application/json
+```
+/notifications
+
+---
+
+### 2.6. /notifications
+```
+DELETE https://skill.deep.go.th/api/notifications?notiId=%7B%7D
+```
+```
+Accept:Text
+```
+/notifications
+
+---
+
+## 3. subject
+
+
+
+### 3.1. user
+```
+GET https://skill.deep.go.th/api/subjects/user
+```
+```
+Accept:*/*
+```
+params
+
+| key | value |
+|--|--|
+citizen_id | 155.473632330761
+filter | {"subject.name":"POD"}
+limit | 155.473632330761
+page | 155.473632330761
+where | {"subject.subjectId":{"<>":430}}
+order_by | createdBy,-detail.userSubjectId
+
+example
+```
+https://skill.deep.go.th/api/subjects/user?citizen_id=155.473632330761&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=155.473632330761&page=155.473632330761&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
 ```
 description
 ```
@@ -238,9 +330,26 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 4.2. /api/subjects/list
+### 3.2. list
 ```
-GET {{baseUrl}}/api/subjects/list?filter=<string>&limit=<number>&page=<number>&where=<string>&order_by=<string>
+GET https://skill.deep.go.th/api/subjects/list
+```
+```
+Accept:*/*
+```
+params
+
+| key | value |
+|--|--|
+filter | {"subject.name":"POD"}
+limit | 155.473632330761
+page | 155.473632330761
+where | {"subject.subjectId":{"<>":430}}
+order_by | createdBy,-detail.userSubjectId
+
+example
+```
+https://skill.deep.go.th/api/subjects/list?filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=155.473632330761&page=155.473632330761&where=%7B%22subject.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=createdBy%2C-detail.userSubjectId
 ```
 description
 ```
@@ -258,9 +367,27 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 ---
 
-### 4.3. /api/subjects/user-list
+### 3.3. user-list
 ```
-GET {{baseUrl}}/api/subjects/user-list?citizen_id=<number>&filter=<string>&limit=<number>&page=<number>&where=<string>&order_by=<string>
+GET https://skill.deep.go.th/api/subjects/user-list
+```
+```
+Accept:*/*
+```
+params
+
+| key | value |
+|--|--|
+citizen_id | 155.473632330761
+filter | {"subject.name":"POD"}
+limit | 155.473632330761
+page | 155.473632330761
+where | {"subject.detail.subjectId":{"<>":430}}
+order_by | name
+
+example
+```
+https://skill.deep.go.th/api/subjects/user-list?citizen_id=155.473632330761&filter=%7B%22subject.name%22%3A%22POD%22%7D&limit=155.473632330761&page=155.473632330761&where=%7B%22subject.detail.subjectId%22%3A%7B%22%3C%3E%22%3A430%7D%7D&order_by=name
 ```
 description
 ```
@@ -279,4 +406,3 @@ order_by | false | กำหนดการเรียงข้อมูล | c
 
 
 ---
-
