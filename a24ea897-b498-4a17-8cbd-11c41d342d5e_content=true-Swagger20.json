@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "3b128974-45f3-4048-8f83-04122485228c",
-    "title": "API Document Deep1",
+    "version": "3b128974-45f3-4048-8f83-04122485227c",
+    "title": "deep1",
     "description": "description\r\n```\r\nในกรณีที่เรียกจากฝั่ง server\r\nให้เพิ่ม http request header\r\nx-service-token    2zTBruhVv5U6vMUarykEqZTWgM6GP2Jj\r\n\r\nส่วนกรณีที่เรียกจากฝั่ง client \r\nให้เพิ่ม http request header\r\nAuthorization    Bearer <access_token>\r\n```",
     "contact": {}
   },
@@ -20,12 +20,12 @@
   "paths": {
     "/api/exs/store": {
       "get": {
-        "description": "```\r\nสร้างแบบทดสอบ\r\n```\r\n| | |\r\n|--|--|\r\n1 | redirect มาที่ https://`{{host}}`/api/exs/store?redirect=`{{url_redirect}}`&transection=`{{transection}}`&exId=1\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | สร้างหรือแก้ไขข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n---\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam ที่ถูกสร้างหรือแก้ไข\r\n2 | name | คือ ชื่อ exam ที่ถูกสร้างหรือแก้ไข\r\n3 | transection | คือ `{{transection}}` ที่ได้ส่งมา",
-        "summary": "สร้างแบบทดสอบ",
+        "description": "| | |\r\n|--|--|\r\n1 | redirect มาที่ https://`{{host}}`/api/exs/store?redirect=`{{url_redirect}}`&transection=`{{transection}}`&exId=1\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | สร้างหรือแก้ไขข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n---\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam ที่ถูกสร้างหรือแก้ไข\r\n2 | name | คือ ชื่อ exam ที่ถูกสร้างหรือแก้ไข\r\n3 | transection | คือ `{{transection}}` ที่ได้ส่งมา",
+        "summary": "createEx",
         "tags": [
           "ex"
         ],
-        "operationId": "สร้างแบบทดสอบ",
+        "operationId": "createEx",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -63,12 +63,12 @@
     },
     "/api/exs/user": {
       "get": {
-        "description": "```\r\nredirect ทำแบบทดสอบ\r\n```\r\n\r\n| | |\r\n|--|--|\r\n1 | redirect มาที่ `{{url_deep}}`/api/exs/user?redirect=`{{url_redirect}}`&transection=`{{transection}}`&timeLimit=`{{secondTime}}`&exId=`1`&passScore=`50`\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | ทำข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n### ข้อมูลที่ต้องส่งมา (request)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | redirect | ลิ่งที่จะส่งกลับ\r\n2 | transection | \r\n3 | timeLimit | ระบุจำนวนเวลาในการทำแบบฝึกหัด( วินาที )\r\n4 | exId | ระบุ exam ที่ต้องการ\r\n5 | passScore | เกณร์คะแนนผ่านแบบฝึกหัด ( เปอร์เช็น )\r\n\r\n---\r\n\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป (response)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam testing\r\n2 | score | คือ คะแนนที่ทำได้\r\n3 | duration | คือ เวลาที่ใช้ไป\r\n4 | transection | คือ `{{transection}}` ที่ได้ส่งมา\r\n5 | code | คือ keyid ของ log\r\n6 | isPass | complete คือสอบผ่าน ส่วน not-complete คือสอบไม่ผ่าน\r\n7 | rawScore | คือ คะแนนดิบ\r\n8 | maxScore | คือ คะแนนเต็ม\r\n9 | timetable_id | ",
-        "summary": "redirect ทำแบบทดสอบ",
+        "description": "| | |\r\n|--|--|\r\n1 | redirect มาที่ `{{url_deep}}`/api/exs/user?redirect=`{{url_redirect}}`&transection=`{{transection}}`&timeLimit=`{{secondTime}}`&exId=`1`&passScore=`50`\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | ทำข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n### ข้อมูลที่ต้องส่งมา (request)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | redirect | ลิ่งที่จะส่งกลับ\r\n2 | transection | \r\n3 | timeLimit | ระบุจำนวนเวลาในการทำแบบฝึกหัด( วินาที )\r\n4 | exId | ระบุ exam ที่ต้องการ\r\n5 | passScore | เกณร์คะแนนผ่านแบบฝึกหัด ( เปอร์เช็น )\r\n\r\n---\r\n\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป (response)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam testing\r\n2 | score | คือ คะแนนที่ทำได้\r\n3 | duration | คือ เวลาที่ใช้ไป\r\n4 | transection | คือ `{{transection}}` ที่ได้ส่งมา\r\n5 | code | คือ keyid ของ log\r\n6 | isPass | complete คือสอบผ่าน ส่วน not-complete คือสอบไม่ผ่าน\r\n7 | rawScore | คือ คะแนนดิบ\r\n8 | maxScore | คือ คะแนนเต็ม\r\n9 | timetable_id | ",
+        "summary": "testingEx",
         "tags": [
           "ex"
         ],
-        "operationId": "redirectทำแบบทดสอบ",
+        "operationId": "testingEx",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -120,12 +120,12 @@
     },
     "/api/exs/log": {
       "get": {
-        "description": "```\nget Log ดูแบบฝึกหัดย้อยหลัง\n```",
-        "summary": "get Log ดูแบบฝึกหัดย้อยหล",
+        "description": "get Log ดูแบบฝึกหัดย้อยหลัง",
+        "summary": "getLogดูแบบฝึกหัดย้อยหลัง",
         "tags": [
           "ex"
         ],
-        "operationId": "getLogดูแบบฝึกหัดย้อยหล",
+        "operationId": "getLogดูแบบฝึกหัดย้อยหลัง",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -156,12 +156,12 @@
     },
     "/api/exs/report/{idEx}": {
       "get": {
-        "description": "```\nสรุปผลแบบทดสอบ\n```",
-        "summary": "สรุปผลแบบทดสอบ",
+        "description": "get Report",
+        "summary": "getReport",
         "tags": [
           "ex"
         ],
-        "operationId": "สรุปผลแบบทดสอบ",
+        "operationId": "getReport",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -185,12 +185,33 @@
     },
     "/api/content/excel": {
       "post": {
-        "description": "```\r\nอัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel\r\n```\r\n\r\n| key | type |\r\n|--|--|\r\nfile_upload | file\r\n\r\nดาวน์โหลด ไฟล์รูปแบบ\r\nhttps://skill.deep.go.th/api/content/excel-format\r\n\r\nstatus 200\r\n```json\r\n{\r\n    \"code\": 200,\r\n    \"status\": \"success\",\r\n    \"list\": [\r\n        {\r\n            \"exId\": 221,\r\n            \"name\": \"AMSF\"\r\n        }\r\n    ]\r\n}\r\n```",
-        "summary": "อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel",
+        "description": "| key | type |\r\n|--|--|\r\nfile_upload | file\r\n\r\nดาวน์โหลด ไฟล์รูปแบบ\r\nhttps://skill.deep.go.th/api/content/excel-format\r\n\r\nstatus 200\r\n```json\r\n{\r\n    \"code\": 200,\r\n    \"status\": \"success\",\r\n    \"list\": [\r\n        {\r\n            \"exId\": 221,\r\n            \"name\": \"AMSF\"\r\n        }\r\n    ]\r\n}\r\n```",
+        "summary": "importexcel",
         "tags": [
           "ex"
         ],
-        "operationId": "อัพโหลดข้อมูลแบบทดสอบด้วยไฟล์excel",
+        "operationId": "importexcel",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/account": {
+      "post": {
+        "description": "\r\nหลังจาก มีการ register เสร็จ\r\nส่งข้อมูล account เพื่อบันทึกข้อมูล\r\n\r\n---\r\nresponse\r\n\r\n```json\r\n{\r\n    \"code\": 200,\r\n    \"status\": \"success\"\r\n}\r\n```",
+        "summary": "register",
+        "tags": [
+          "account"
+        ],
+        "operationId": "register",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -206,12 +227,12 @@
     },
     "/api/notifications/unread-count": {
       "get": {
-        "description": "```\nเรียกข้อมูล notification ที่ยังไม่ได้อ่าน\n```",
-        "summary": "เรียกข้อมูล notification ที่ยังไม่ได้อ่าน",
+        "description": "/notifications/unread-count",
+        "summary": "/notifications/unread-count",
         "tags": [
           "notification"
         ],
-        "operationId": "เรียกข้อมูลnotificationที่ยังไม่ได้อ่าน",
+        "operationId": "/notifications/unread-count",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -227,12 +248,12 @@
     },
     "/api/notifications/read": {
       "patch": {
-        "description": "```\nupdate สถานะ notification ว่าอ่านแล้ว\n```",
-        "summary": "update สถานะ notification ว่าอ่านแ",
+        "description": "/notifications/read",
+        "summary": "/notifications/read",
         "tags": [
           "notification"
         ],
-        "operationId": "updateสถานะnotificationว่าอ่านแ",
+        "operationId": "/notifications/read",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -259,12 +280,12 @@
     },
     "/api/notifications/:id": {
       "put": {
-        "description": "```\nupdate notification\n```",
-        "summary": "update notification",
+        "description": "/notifications/:id",
+        "summary": "/notifications/:id",
         "tags": [
           "notification"
         ],
-        "operationId": "updatenotification",
+        "operationId": "/notifications/:id",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -281,11 +302,11 @@
     "/api/notifications": {
       "get": {
         "description": "/notifications",
-        "summary": "เรียกข้อมูล notification",
+        "summary": "/notifications",
         "tags": [
           "notification"
         ],
-        "operationId": "เรียกข้อมูลnotification",
+        "operationId": "/notifications",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -347,7 +368,7 @@
         "tags": [
           "notification"
         ],
-        "operationId": "/notifications",
+        "operationId": "Post/notifications",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -393,12 +414,12 @@
     },
     "/api/subjects/user": {
       "get": {
-        "description": "description\r\n```\r\nเรียกข้อมูลวิชา ของผู้เรียน\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
-        "summary": "เรียกข้อมูลวิชา ของผู้เรียน",
+        "description": "description\r\n```\r\napi ข้อมูลการเรียนรายบุคล\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
+        "summary": "user",
         "tags": [
           "subject"
         ],
-        "operationId": "เรียกข้อมูลวิชาของผู้เรียน",
+        "operationId": "user",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -449,7 +470,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "```json\r\n    [\r\n        {\r\n            \"subjectId\": 500,\r\n            \"name\": \"การจดโน๊ดอย่างไรให้น่าประทับใจและดูโปร\",\r\n            \"description\": \"การอบรมทักษะพื้นฐานการใช้ iPadOS ในหัวข้อ \\\"จดโน๊ตอย่างไรให้น่าประทับใจและดูโปร\\\" โดย อ.ปัญชสา เชาวน์ชูเวชช (APLP)\",\r\n            \"userIdCreator\": \"\",\r\n            \"orgcodeCreator\": \"\",\r\n            \"isLearningOrder\": \"Y\",\r\n            \"cover\": \"\",\r\n            \"owner_name\": \"Apple Professional Learning Provider\",\r\n            \"subjectCategoryId\": \"\",\r\n            \"organizationCode\": \"\",\r\n            \"createdBy\": 101003,\r\n            \"countUnit\": \"\",\r\n            \"category\": {},\r\n            \"detail\": {\r\n                \"userSubjectId\": 13565,\r\n                \"subjectId\": 500,\r\n                \"userId\": 101003,\r\n                \"status\": \"learnt\",\r\n                \"isFinished\": \"Y\"\r\n            }\r\n        },...\r\n    ]\r\n```",
             "headers": {}
           }
         }
@@ -457,12 +478,12 @@
     },
     "/api/subjects/list": {
       "get": {
-        "description": "description\r\n```\r\nเรียกข้อมูล วิชา\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n",
-        "summary": "เรียกข้อมูล วิชา",
+        "description": "description\r\n```\r\napi ข้อมูลวิชา\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n",
+        "summary": "list",
         "tags": [
           "subject"
         ],
-        "operationId": "เรียกข้อมูลวิชา",
+        "operationId": "list",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -506,7 +527,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "```json\r\n    [\r\n        {\r\n            \"subjectId\": 500,\r\n            \"name\": \"การจดโน๊ดอย่างไรให้น่าประทับใจและดูโปร\",\r\n            \"description\": \"การอบรมทักษะพื้นฐานการใช้ iPadOS ในหัวข้อ \\\"จดโน๊ตอย่างไรให้น่าประทับใจและดูโปร\\\" โดย อ.ปัญชสา เชาวน์ชูเวชช (APLP)\",\r\n            \"userIdCreator\": \"\",\r\n            \"orgcodeCreator\": \"\",\r\n            \"isLearningOrder\": \"Y\",\r\n            \"cover\": \"\",\r\n            \"owner_name\": \"Apple Professional Learning Provider\",\r\n            \"subjectCategoryId\": \"\",\r\n            \"organizationCode\": \"\",\r\n            \"createdBy\": 101003,\r\n            \"countUnit\": \"\",\r\n            \"category\": {}\r\n        },...\r\n    ]\r\n```",
             "headers": {}
           }
         }
@@ -514,12 +535,12 @@
     },
     "/api/subjects/user-list": {
       "get": {
-        "description": "description\r\n```\r\nเรียกข้อมูลวิชา ของผู้เรียน (หลายคน)\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118,1524896358411\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
-        "summary": "เรียกข้อมูลวิชา ของผู้เรียน (หลายคน)1",
+        "description": "description\r\n```\r\napi ข้อมูลการเรียนรายบุคลแบบหลายคน\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
+        "summary": "user-list",
         "tags": [
           "subject"
         ],
-        "operationId": "เรียกข้อมูลวิชาของผู้เรียน(หลายคน)1",
+        "operationId": "user-list",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -570,7 +591,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "```json\n[\n    {\n        \"userId\": 101010,\n        \"name\": \"ยงศักดิ์\",\n        \"lastname\": \"สุพรรณ\",\n        \"middlename\": \"\",\n        \"prefix\": \"นาย\",\n        \"email\": \"example@obec.moe.go.th\",\n        \"subject\": [\n            {\n                \"userSubjectId\": 8759,\n                \"subjectId\": 311,\n                \"userId\": 101010,\n                \"status\": \"learning\",\n                \"isFinished\": \"Y\",\n                \"detail\": {\n                    \"subjectId\": 311,\n                    \"name\": \"หลักสูตรการยกระดับพัฒนาทักษะความเข้าใจด้านการใช้เทคโนโลยีดิจิทัล\",\n                    \"description\": \"หลักสูตรการยกระดับพัฒนาทักษะความเข้าใจด้านการใช้เทคโนโลยีดิจิทัล สำหรับข้าราชครูและบุคลากรทางการศึกษา \\nด้วยประกาศนียบัตรมาตรฐานสากล IC3 Digital Literacy Certification\",\n                    \"userIdCreator\": \"\",\n                    \"orgcodeCreator\": \"\",\n                    \"isLearningOrder\": \"Y\",\n                    \"cover\": \"\",\n                    \"owner_name\": \"บริษัท เออาร์ไอที จำกัด\",\n                    \"subjectCategoryId\": \"\",\n                    \"organizationCode\": \"\",\n                    \"createdBy\": 1,\n                    \"countUnit\": \"\",\n                    \"category\": \"\"\n                }\n            }\n        ]\n    },...\n]\n```",
             "headers": {}
           }
         }
@@ -580,6 +601,10 @@
   "tags": [
     {
       "name": "ex",
+      "description": ""
+    },
+    {
+      "name": "account",
       "description": ""
     },
     {
