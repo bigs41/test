@@ -1,0 +1,594 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "3b128974-45f3-4048-8f83-04122485228c",
+    "title": "API Document Deep1",
+    "description": "description\r\n```\r\nในกรณีที่เรียกจากฝั่ง server\r\nให้เพิ่ม http request header\r\nx-service-token    2zTBruhVv5U6vMUarykEqZTWgM6GP2Jj\r\n\r\nส่วนกรณีที่เรียกจากฝั่ง client \r\nให้เพิ่ม http request header\r\nAuthorization    Bearer <access_token>\r\n```",
+    "contact": {}
+  },
+  "host": "www.example.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/exs/store": {
+      "get": {
+        "description": "```\r\nสร้างแบบทดสอบ\r\n```\r\n| | |\r\n|--|--|\r\n1 | redirect มาที่ https://`{{host}}`/api/exs/store?redirect=`{{url_redirect}}`&transection=`{{transection}}`&exId=1\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | สร้างหรือแก้ไขข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n---\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam ที่ถูกสร้างหรือแก้ไข\r\n2 | name | คือ ชื่อ exam ที่ถูกสร้างหรือแก้ไข\r\n3 | transection | คือ `{{transection}}` ที่ได้ส่งมา",
+        "summary": "สร้างแบบทดสอบ",
+        "tags": [
+          "ex"
+        ],
+        "operationId": "สร้างแบบทดสอบ",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "redirect",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "url ที่ส่งข้อมูลกลับ"
+          },
+          {
+            "name": "transection",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "เป็น timestamp"
+          },
+          {
+            "name": "exId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "ใส่เพื่อแก้ไข"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/exs/user": {
+      "get": {
+        "description": "```\r\nredirect ทำแบบทดสอบ\r\n```\r\n\r\n| | |\r\n|--|--|\r\n1 | redirect มาที่ `{{url_deep}}`/api/exs/user?redirect=`{{url_redirect}}`&transection=`{{transection}}`&timeLimit=`{{secondTime}}`&exId=`1`&passScore=`50`\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | ทำข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n### ข้อมูลที่ต้องส่งมา (request)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | redirect | ลิ่งที่จะส่งกลับ\r\n2 | transection | \r\n3 | timeLimit | ระบุจำนวนเวลาในการทำแบบฝึกหัด( วินาที )\r\n4 | exId | ระบุ exam ที่ต้องการ\r\n5 | passScore | เกณร์คะแนนผ่านแบบฝึกหัด ( เปอร์เช็น )\r\n\r\n---\r\n\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป (response)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam testing\r\n2 | score | คือ คะแนนที่ทำได้\r\n3 | duration | คือ เวลาที่ใช้ไป\r\n4 | transection | คือ `{{transection}}` ที่ได้ส่งมา\r\n5 | code | คือ keyid ของ log\r\n6 | isPass | complete คือสอบผ่าน ส่วน not-complete คือสอบไม่ผ่าน\r\n7 | rawScore | คือ คะแนนดิบ\r\n8 | maxScore | คือ คะแนนเต็ม\r\n9 | timetable_id | ",
+        "summary": "redirect ทำแบบทดสอบ",
+        "tags": [
+          "ex"
+        ],
+        "operationId": "redirectทำแบบทดสอบ",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "redirect",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "url ที่ส่งข้อมูลกลับ"
+          },
+          {
+            "name": "transection",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "เป็น timestamp"
+          },
+          {
+            "name": "timeLimit",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "ตั้งเวลาในการทำข้อสอบ (วินาที)"
+          },
+          {
+            "name": "exId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "id ที่ต้องการ testing"
+          },
+          {
+            "name": "passScore",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "เกณฑ์คะแนนที่ผ่าน 1-100 percen"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/exs/log": {
+      "get": {
+        "description": "```\nget Log ดูแบบฝึกหัดย้อยหลัง\n```",
+        "summary": "get Log ดูแบบฝึกหัดย้อยหล",
+        "tags": [
+          "ex"
+        ],
+        "operationId": "getLogดูแบบฝึกหัดย้อยหล",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "transection",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/exs/report/{idEx}": {
+      "get": {
+        "description": "```\nสรุปผลแบบทดสอบ\n```",
+        "summary": "สรุปผลแบบทดสอบ",
+        "tags": [
+          "ex"
+        ],
+        "operationId": "สรุปผลแบบทดสอบ",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "idEx",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/content/excel": {
+      "post": {
+        "description": "```\r\nอัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel\r\n```\r\n\r\n| key | type |\r\n|--|--|\r\nfile_upload | file\r\n\r\nดาวน์โหลด ไฟล์รูปแบบ\r\nhttps://skill.deep.go.th/api/content/excel-format\r\n\r\nstatus 200\r\n```json\r\n{\r\n    \"code\": 200,\r\n    \"status\": \"success\",\r\n    \"list\": [\r\n        {\r\n            \"exId\": 221,\r\n            \"name\": \"AMSF\"\r\n        }\r\n    ]\r\n}\r\n```",
+        "summary": "อัพโหลด ข้อมูลแบบทดสอบด้วยไฟล์ excel",
+        "tags": [
+          "ex"
+        ],
+        "operationId": "อัพโหลดข้อมูลแบบทดสอบด้วยไฟล์excel",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/notifications/unread-count": {
+      "get": {
+        "description": "```\nเรียกข้อมูล notification ที่ยังไม่ได้อ่าน\n```",
+        "summary": "เรียกข้อมูล notification ที่ยังไม่ได้อ่าน",
+        "tags": [
+          "notification"
+        ],
+        "operationId": "เรียกข้อมูลnotificationที่ยังไม่ได้อ่าน",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/notifications/read": {
+      "patch": {
+        "description": "```\nupdate สถานะ notification ว่าอ่านแล้ว\n```",
+        "summary": "update สถานะ notification ว่าอ่านแ",
+        "tags": [
+          "notification"
+        ],
+        "operationId": "updateสถานะnotificationว่าอ่านแ",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "notiId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/notifications/:id": {
+      "put": {
+        "description": "```\nupdate notification\n```",
+        "summary": "update notification",
+        "tags": [
+          "notification"
+        ],
+        "operationId": "updatenotification",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/notifications": {
+      "get": {
+        "description": "/notifications",
+        "summary": "เรียกข้อมูล notification",
+        "tags": [
+          "notification"
+        ],
+        "operationId": "เรียกข้อมูลnotification",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "search_fields",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "notiId"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "description": "/notifications",
+        "summary": "/notifications",
+        "tags": [
+          "notification"
+        ],
+        "operationId": "/notifications",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            },
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "description": "/notifications",
+        "summary": "/notifications",
+        "tags": [
+          "notification"
+        ],
+        "operationId": "Delete/notifications",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "notiId",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/subjects/user": {
+      "get": {
+        "description": "description\r\n```\r\nเรียกข้อมูลวิชา ของผู้เรียน\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
+        "summary": "เรียกข้อมูลวิชา ของผู้เรียน",
+        "tags": [
+          "subject"
+        ],
+        "operationId": "เรียกข้อมูลวิชาของผู้เรียน",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "citizen_id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "เลขบัตรประจำตัว"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "ใช้ค้นหา"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "เลขหน้าลิสข้อมูล"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "ค้นหาด้วยคำสั่ง where"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "กำหนดการเรียงข้อมูล"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/subjects/list": {
+      "get": {
+        "description": "description\r\n```\r\nเรียกข้อมูล วิชา\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n",
+        "summary": "เรียกข้อมูล วิชา",
+        "tags": [
+          "subject"
+        ],
+        "operationId": "เรียกข้อมูลวิชา",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "ใช้ค้นหา"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "เลขหน้าลิสข้อมูล"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "ค้นหาด้วยคำสั่ง where"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "กำหนดการเรียงข้อมูล"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/api/subjects/user-list": {
+      "get": {
+        "description": "description\r\n```\r\nเรียกข้อมูลวิชา ของผู้เรียน (หลายคน)\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118,1524896358411\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
+        "summary": "เรียกข้อมูลวิชา ของผู้เรียน (หลายคน)1",
+        "tags": [
+          "subject"
+        ],
+        "operationId": "เรียกข้อมูลวิชาของผู้เรียน(หลายคน)1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "citizen_id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "เลขบัตรประจำตัว"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "ใช้ค้นหา"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "เลขหน้าลิสข้อมูล"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "ค้นหาด้วยคำสั่ง where"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "กำหนดการเรียงข้อมูล"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "ex",
+      "description": ""
+    },
+    {
+      "name": "notification",
+      "description": ""
+    },
+    {
+      "name": "subject",
+      "description": ""
+    }
+  ]
+}
