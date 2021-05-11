@@ -1,0 +1,45 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "sort": null,
+            "title": "Simon Wuyts",
+            "introduction": "<p>Freelance <strong>interaction designer<\/strong> and <strong>front-end developer<\/strong>. Dreams in HTML, CSS and Javascript, lives in Ghent, Belgium. Helps other people build digital products.<\/p>",
+            "content": null,
+            "slug": "home"
+        },
+        {
+            "id": 2,
+            "sort": null,
+            "title": "Work",
+            "introduction": "<p>To get an idea of my work, <strong>here are some public projects<\/strong> I worked on. Since I can't show everything here, I'm happy to discuss more of my work in person.<\/p>",
+            "content": "<h3 class=\"center\">Some of the companies I worked with<\/h3>",
+            "slug": "work"
+        },
+        {
+            "id": 3,
+            "sort": null,
+            "title": "About",
+            "introduction": "<p>Hi, I'm <strong>Simon Wuyts<\/strong>, 29 years old, living in and in love with Ghent.<\/p>",
+            "content": "<p>After getting my master's degree in Communication Sciences I decided to become a full-time digital designer and developer. Late 2013, I began working as an Interaction Designer at <a href=\"http:\/\/www.yesplan.be\/\" target=\"_blank\" rel=\"noreferrer noopener\">Yesplan<\/a>, a Ghent-based software startup.<\/p>\n<p>In 2016 I worked as a freelance digital designer for <a href=\"http:\/\/www.mediahuis.be\/\" target=\"_blank\" rel=\"noreferrer noopener\">Mediahuis<\/a>, one of Belgium's biggest media companies. Later that year I joined <a href=\"http:\/\/mono.company\/\" target=\"_blank\" rel=\"noreferrer noopener\">Mono Company<\/a>, a group of digital designers with a shared love of great design and technology. Since 2018 I'm again focused on various smaller freelance projects.<\/p>\n<figure><img src=\"https:\/\/s3.eu-west-3.amazonaws.com\/simonwuyts-portfolio\/about.jpg#asset:390:url\" width=\"2000\" height=\"800\" data-image=\"390\" \/><\/figure>\n<p>Apart from design and code, I love playing the piano, going for a run or watching a movie in one of Ghent's beautiful cinema's. I also love coffee, so we should definitely grab one together. ☕️<\/p>",
+            "slug": "about"
+        },
+        {
+            "id": 4,
+            "sort": null,
+            "title": "Articles",
+            "introduction": "",
+            "content": null,
+            "slug": "articles"
+        },
+        {
+            "id": 5,
+            "sort": null,
+            "title": "Contact",
+            "introduction": "<p class=\"center\">Think we can make great things together?<strong><br \/><a href=\"mailto:hi@simonwuyts.com\">Let's get in touch!<\/a><\/strong><\/p>",
+            "content": "<p class=\"center\"><strong>Simon Wuyts<\/strong><br \/><a href=\"mailto:hi@simonwuyts.com\">hi@simonwuyts.com&nbsp;<\/a><\/p>",
+            "slug": "contact"
+        }
+    ],
+    "public": true
+}
