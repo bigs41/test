@@ -1,8 +1,6 @@
 <!doctype html>
 <html data-n-head-ssr lang="en" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
 
-<base target="_top" href="/test">
-
 <head>
   <title>Xcode as a Design Tool: the Customizable Tooltips Case - Simon Wuyts</title>
   <meta data-n-head="ssr" charset="utf-8">
@@ -20,27 +18,27 @@
   <meta data-n-head="ssr" data-hid="ogimage" property="og:image" content="https://www.simonwuyts.com/images/share.png">
   <meta data-n-head="ssr" data-hid="twitterimage" property="twitter:image"
     content="https://www.simonwuyts.com/images/share.png">
-  <link data-n-head="ssr" rel="icon" type="image/png" href="favicon.png">
+  <link data-n-head="ssr" rel="icon" type="image/png" href="/test/favicon.png">
   <link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://rsms.me/inter/inter.css">
   <link data-n-head="ssr" rel="alternate" type="application/rss+xml" href="https://www.simonwuyts.com/articles/feed.xml"
     title="Simon Wuyts - Interaction Designer & Front-end Developer">
   <link data-n-head="ssr" rel="alternate" type="application/json" href="https://www.simonwuyts.com/articles/feed.json"
     title="Simon Wuyts - Interaction Designer & Front-end Developer">
-  <link rel="preload" href="_nuxt/ef6f9da.js" as="script">
-  <link rel="preload" href="_nuxt/3bad845.js" as="script">
-  <link rel="preload" href="_nuxt/vendors/app.291a06d.css" as="style">
-  <link rel="preload" href="_nuxt/2ff9a9a.js" as="script">
-  <link rel="preload" href="_nuxt/app.12ec74d.css" as="style">
-  <link rel="preload" href="_nuxt/d04c38a.js" as="script">
-  <link rel="preload" href="_nuxt/pages/articles/_slug.3ff2d76.css" as="style">
-  <link rel="preload" href="_nuxt/0ef0fba.js" as="script">
-  <link rel="preload" href="_nuxt/aa4b8e5.js" as="script">
-  <link rel="preload" href="_nuxt/19c0f32.js" as="script">
-  <link rel="stylesheet" href="_nuxt/vendors/app.291a06d.css">
-  <link rel="stylesheet" href="_nuxt/app.12ec74d.css">
-  <link rel="stylesheet" href="_nuxt/pages/articles/_slug.3ff2d76.css">
+  <link rel="preload" href="/test/_nuxt/ef6f9da.js" as="script">
+  <link rel="preload" href="/test/_nuxt/3bad845.js" as="script">
+  <link rel="preload" href="/test/_nuxt/vendors/app.291a06d.css" as="style">
+  <link rel="preload" href="/test/_nuxt/2ff9a9a.js" as="script">
+  <link rel="preload" href="/test/_nuxt/app.12ec74d.css" as="style">
+  <link rel="preload" href="/test/_nuxt/d04c38a.js" as="script">
+  <link rel="preload" href="/test/_nuxt/pages/articles/_slug.3ff2d76.css" as="style">
+  <link rel="preload" href="/test/_nuxt/0ef0fba.js" as="script">
+  <link rel="preload" href="/test/_nuxt/aa4b8e5.js" as="script">
+  <link rel="preload" href="/test/_nuxt/19c0f32.js" as="script">
+  <link rel="stylesheet" href="/test/_nuxt/vendors/app.291a06d.css">
+  <link rel="stylesheet" href="/test/_nuxt/app.12ec74d.css">
+  <link rel="stylesheet" href="/test/_nuxt/pages/articles/_slug.3ff2d76.css">
   <link rel="preload"
-    href="_nuxt/static/1620629395/articles/xcode-as-a-design-tool-the-customizable-tooltips-case/payload.js"
+    href="/test/_nuxt/static/1620629395/articles/xcode-as-a-design-tool-the-customizable-tooltips-case/payload.js"
     as="script">
 </head>
 
@@ -63,7 +61,7 @@
             </filter>
           </defs>
         </svg>
-        <nav class="c-navigation"><a href="" class="c-navigation__logo nuxt-link-active"><svg
+        <nav class="c-navigation"><a href="/test/" class="c-navigation__logo nuxt-link-active"><svg
               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" preserveAspectRatio="none" class="c-logo">
               <defs>
                 <mask id="logoMask">
@@ -80,15 +78,15 @@
               </defs>
               <circle cx="32" cy="32" r="32" fill="currentColor" mask="url(#logoMask)" class="c-logo__circle"></circle>
             </svg> <span class="sr-only">Home</span></a>
-          <div class="c-navigation__left"><a href="" class="c-navigation__item">
+          <div class="c-navigation__left"><a href="/test/" class="c-navigation__item">
               Home
-            </a> <a href="work" class="c-navigation__item">
+            </a> <a href="/test/work" class="c-navigation__item">
               Work
-            </a> <a href="about" class="c-navigation__item">
+            </a> <a href="/test/about" class="c-navigation__item">
               About
-            </a> <a href="articles" class="c-navigation__item c-navigation__item--active">
+            </a> <a href="/test/articles" class="c-navigation__item c-navigation__item--active">
               Articles
-            </a> <a href="contact" class="c-navigation__item">
+            </a> <a href="/test/contact" class="c-navigation__item">
               Contact
             </a></div>
         </nav>
@@ -178,8 +176,7 @@
               <h2>Step 3: Here’s Where the Math Comes in</h2>
               <p>To translate the tooltip shape to code, I first mapped it on an X and Y axis. Based on three variables,
                 I was able to define all the necessary coordinates: <code>tooltipWidth</code>,
-                <code>tooltipHeight</code> and <code>borderRadius</code>.
-              </p>
+                <code>tooltipHeight</code> and <code>borderRadius</code>.</p>
               <p><img
                   src="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/feaf4fde-eb5f-4d75-9ab6-17a10fa7f346.gif"
                   alt="Math" width="1600" height="844"></p>
@@ -205,14 +202,12 @@ bubblePath.addLine(to: bottomLeft(borderRadius, 0))
 bubblePath.addCurve(to: bottomLeft(0, borderRadius), controlPoint1: bottomLeft(borderRadius / 2, 0), controlPoint2: bottomLeft(0, borderRadius / 2))
 bubblePath.close()</code></pre>
               <p>In the same way, I added the different tooltip arrows to the path. I now had a
-                <code>UIBezierPath</code> object describing the tooltip shape, but my storyboard was still empty.
-              </p>
+                <code>UIBezierPath</code> object describing the tooltip shape, but my storyboard was still empty.</p>
               <h2>Step 4: Let’s Paint</h2>
               <p>The last thing I needed to do before switching to the storyboard, was making sure the path was painted.
                 <code>UIKit</code> lets you stack as many layers on top of each other as you like while reusing the same
                 shape definition. I split the tooltip into three layers (shadow, border and fill) and inserted them into
-                the custom view:
-              </p>
+                the custom view:</p>
               <pre><code class="language-swift">// Shadow Layer
 let shadowShape = CAShapeLayer()
 shadowShape.path = bubblePath.cgPath
@@ -258,7 +253,7 @@ self.layer.insertSublayer(fillShape, at: 0)</code></pre>
                 <!---->
                 <div class="c-social__secondary">
                   Find me online or
-                  <a href="contact">get in touch</a>
+                  <a href="/test/contact">get in touch</a>
                 </div>
               </h3>
               <ul class="c-social-links">
@@ -288,13 +283,13 @@ self.layer.insertSublayer(fillShape, at: 0)</code></pre>
     </div>
   </div>
   <script>window.__NUXT__ = { staticAssetsBase: "/_nuxt/static/1620629395", layout: "default", error: null, serverRendered: !0, routePath: "/articles/xcode-as-a-design-tool-the-customizable-tooltips-case", config: {} }</script>
-  <script src="_nuxt/ef6f9da.js" defer></script>
-  <script src="_nuxt/0ef0fba.js" defer></script>
-  <script src="_nuxt/aa4b8e5.js" defer></script>
-  <script src="_nuxt/19c0f32.js" defer></script>
-  <script src="_nuxt/3bad845.js" defer></script>
-  <script src="_nuxt/2ff9a9a.js" defer></script>
-  <script src="_nuxt/d04c38a.js" defer></script>
+  <script src="/test/_nuxt/ef6f9da.js" defer></script>
+  <script src="/test/_nuxt/0ef0fba.js" defer></script>
+  <script src="/test/_nuxt/aa4b8e5.js" defer></script>
+  <script src="/test/_nuxt/19c0f32.js" defer></script>
+  <script src="/test/_nuxt/3bad845.js" defer></script>
+  <script src="/test/_nuxt/2ff9a9a.js" defer></script>
+  <script src="/test/_nuxt/d04c38a.js" defer></script>
 </body>
 
 </html>

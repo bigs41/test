@@ -1,8 +1,6 @@
 <!doctype html>
 <html data-n-head-ssr lang="en" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
 
-<base target="_top" href="/test">
-
 <head>
   <title>Vue.js and D3: A Chart Waiting To Happen - Simon Wuyts</title>
   <meta data-n-head="ssr" charset="utf-8">
@@ -19,26 +17,26 @@
   <meta data-n-head="ssr" data-hid="ogimage" property="og:image" content="https://www.simonwuyts.com/images/share.png">
   <meta data-n-head="ssr" data-hid="twitterimage" property="twitter:image"
     content="https://www.simonwuyts.com/images/share.png">
-  <link data-n-head="ssr" rel="icon" type="image/png" href="favicon.png">
+  <link data-n-head="ssr" rel="icon" type="image/png" href="/test/favicon.png">
   <link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://rsms.me/inter/inter.css">
   <link data-n-head="ssr" rel="alternate" type="application/rss+xml" href="https://www.simonwuyts.com/articles/feed.xml"
     title="Simon Wuyts - Interaction Designer & Front-end Developer">
   <link data-n-head="ssr" rel="alternate" type="application/json" href="https://www.simonwuyts.com/articles/feed.json"
     title="Simon Wuyts - Interaction Designer & Front-end Developer">
-  <link rel="preload" href="_nuxt/ef6f9da.js" as="script">
-  <link rel="preload" href="_nuxt/3bad845.js" as="script">
-  <link rel="preload" href="_nuxt/vendors/app.291a06d.css" as="style">
-  <link rel="preload" href="_nuxt/2ff9a9a.js" as="script">
-  <link rel="preload" href="_nuxt/app.12ec74d.css" as="style">
-  <link rel="preload" href="_nuxt/d04c38a.js" as="script">
-  <link rel="preload" href="_nuxt/pages/articles/_slug.3ff2d76.css" as="style">
-  <link rel="preload" href="_nuxt/0ef0fba.js" as="script">
-  <link rel="preload" href="_nuxt/aa4b8e5.js" as="script">
-  <link rel="preload" href="_nuxt/19c0f32.js" as="script">
-  <link rel="stylesheet" href="_nuxt/vendors/app.291a06d.css">
-  <link rel="stylesheet" href="_nuxt/app.12ec74d.css">
-  <link rel="stylesheet" href="_nuxt/pages/articles/_slug.3ff2d76.css">
-  <link rel="preload" href="_nuxt/static/1620629395/articles/vuejs-and-d3-a-chart-waiting-to-happen/payload.js"
+  <link rel="preload" href="/test/_nuxt/ef6f9da.js" as="script">
+  <link rel="preload" href="/test/_nuxt/3bad845.js" as="script">
+  <link rel="preload" href="/test/_nuxt/vendors/app.291a06d.css" as="style">
+  <link rel="preload" href="/test/_nuxt/2ff9a9a.js" as="script">
+  <link rel="preload" href="/test/_nuxt/app.12ec74d.css" as="style">
+  <link rel="preload" href="/test/_nuxt/d04c38a.js" as="script">
+  <link rel="preload" href="/test/_nuxt/pages/articles/_slug.3ff2d76.css" as="style">
+  <link rel="preload" href="/test/_nuxt/0ef0fba.js" as="script">
+  <link rel="preload" href="/test/_nuxt/aa4b8e5.js" as="script">
+  <link rel="preload" href="/test/_nuxt/19c0f32.js" as="script">
+  <link rel="stylesheet" href="/test/_nuxt/vendors/app.291a06d.css">
+  <link rel="stylesheet" href="/test/_nuxt/app.12ec74d.css">
+  <link rel="stylesheet" href="/test/_nuxt/pages/articles/_slug.3ff2d76.css">
+  <link rel="preload" href="/test/_nuxt/static/1620629395/articles/vuejs-and-d3-a-chart-waiting-to-happen/payload.js"
     as="script">
 </head>
 
@@ -61,7 +59,7 @@
             </filter>
           </defs>
         </svg>
-        <nav class="c-navigation"><a href="" class="c-navigation__logo nuxt-link-active"><svg
+        <nav class="c-navigation"><a href="/test/" class="c-navigation__logo nuxt-link-active"><svg
               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" preserveAspectRatio="none" class="c-logo">
               <defs>
                 <mask id="logoMask">
@@ -78,15 +76,15 @@
               </defs>
               <circle cx="32" cy="32" r="32" fill="currentColor" mask="url(#logoMask)" class="c-logo__circle"></circle>
             </svg> <span class="sr-only">Home</span></a>
-          <div class="c-navigation__left"><a href="" class="c-navigation__item">
+          <div class="c-navigation__left"><a href="/test/" class="c-navigation__item">
               Home
-            </a> <a href="work" class="c-navigation__item">
+            </a> <a href="/test/work" class="c-navigation__item">
               Work
-            </a> <a href="about" class="c-navigation__item">
+            </a> <a href="/test/about" class="c-navigation__item">
               About
-            </a> <a href="articles" class="c-navigation__item c-navigation__item--active">
+            </a> <a href="/test/articles" class="c-navigation__item c-navigation__item--active">
               Articles
-            </a> <a href="contact" class="c-navigation__item">
+            </a> <a href="/test/contact" class="c-navigation__item">
               Contact
             </a></div>
         </nav>
@@ -121,7 +119,7 @@
             </div>
             <div class="enter-fade-up enter-delay-2">
               <figure><iframe id="talk_frame_506814" class="wide" style="border:0;padding:0;background:0 0"
-                  src="/speakerdeck.com/player/cdacbd922db34e72a62bf35dec27d95b" width="710" height="399"
+                  src="/test//speakerdeck.com/player/cdacbd922db34e72a62bf35dec27d95b" width="710" height="399"
                   frameborder="0" allowfullscreen></iframe></figure>
               <p>Right now, I’m working on a project called uman.ai, together with <a href="http://ml6.eu/"
                   target="_blank" rel="noreferrer noopener">ML6</a>, a Ghent-based company specialized in Machine
@@ -389,7 +387,7 @@ export default {
                 <!---->
                 <div class="c-social__secondary">
                   Find me online or
-                  <a href="contact">get in touch</a>
+                  <a href="/test/contact">get in touch</a>
                 </div>
               </h3>
               <ul class="c-social-links">
@@ -419,13 +417,13 @@ export default {
     </div>
   </div>
   <script>window.__NUXT__ = { staticAssetsBase: "/_nuxt/static/1620629395", layout: "default", error: null, serverRendered: !0, routePath: "/articles/vuejs-and-d3-a-chart-waiting-to-happen", config: {} }</script>
-  <script src="_nuxt/ef6f9da.js" defer></script>
-  <script src="_nuxt/0ef0fba.js" defer></script>
-  <script src="_nuxt/aa4b8e5.js" defer></script>
-  <script src="_nuxt/19c0f32.js" defer></script>
-  <script src="_nuxt/3bad845.js" defer></script>
-  <script src="_nuxt/2ff9a9a.js" defer></script>
-  <script src="_nuxt/d04c38a.js" defer></script>
+  <script src="/test/_nuxt/ef6f9da.js" defer></script>
+  <script src="/test/_nuxt/0ef0fba.js" defer></script>
+  <script src="/test/_nuxt/aa4b8e5.js" defer></script>
+  <script src="/test/_nuxt/19c0f32.js" defer></script>
+  <script src="/test/_nuxt/3bad845.js" defer></script>
+  <script src="/test/_nuxt/2ff9a9a.js" defer></script>
+  <script src="/test/_nuxt/d04c38a.js" defer></script>
 </body>
 
 </html>
