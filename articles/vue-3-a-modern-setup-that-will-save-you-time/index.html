@@ -1,6 +1,8 @@
 <!doctype html>
 <html data-n-head-ssr lang="en" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
 
+<base target="_top" href="./">
+
 <head>
   <title>Vue 3: A Modern Setup That Will Save You Time - Simon Wuyts</title>
   <meta data-n-head="ssr" charset="utf-8">
@@ -160,7 +162,8 @@ yarn
                 <code>postcss.config.js</code> file and install any plugin you might need. I like to use the <a
                   href="https://github.com/csstools/postcss-preset-env"><code>postcss-preset-env</code></a> plugin,
                 which lets you write modern CSS and polyfills it based on <a
-                  href="https://github.com/browserslist/browserslist">the browsers you want to support.</a></p>
+                  href="https://github.com/browserslist/browserslist">the browsers you want to support.</a>
+              </p>
               <p>First, install the plugin by running</p>
               <pre><code>yarn add -D postcss-preset-env
 </code></pre>
@@ -172,7 +175,8 @@ yarn
 }
 </code></pre>
               <p>The <code>stage</code> property defines how many experimental features you want to enable, from
-                <code>0</code> (experimental) through <code>4</code> (stable).</p>
+                <code>0</code> (experimental) through <code>4</code> (stable).
+              </p>
               <p>You can now write modern CSS while Vite will take care of translating it to the browser:</p>
               <pre><code class="language-css">@import '_base.css';
 
@@ -197,7 +201,8 @@ p {
 </code></pre>
               <p>It's up to you how and where you want to load your CSS styles. You can either use the
                 <code>&lt;style></code> block in your Single File Components or import it directly in your
-                <code>main.js</code> file.</p>
+                <code>main.js</code> file.
+              </p>
               <h3>A note about SCSS</h3>
               <p>Sometimes I still prefer the power of SCSS over CSS. Luckily, Vite supports pre-processors. All you
                 need to do is install it:</p>

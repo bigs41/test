@@ -1,6 +1,8 @@
 <!doctype html>
 <html data-n-head-ssr lang="en" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
 
+<base target="_top" href="./">
+
 <head>
   <title>Xcode as a Design Tool: the Customizable Tooltips Case - Simon Wuyts</title>
   <meta data-n-head="ssr" charset="utf-8">
@@ -175,7 +177,8 @@
               <h2>Step 3: Here’s Where the Math Comes in</h2>
               <p>To translate the tooltip shape to code, I first mapped it on an X and Y axis. Based on three variables,
                 I was able to define all the necessary coordinates: <code>tooltipWidth</code>,
-                <code>tooltipHeight</code> and <code>borderRadius</code>.</p>
+                <code>tooltipHeight</code> and <code>borderRadius</code>.
+              </p>
               <p><img
                   src="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/feaf4fde-eb5f-4d75-9ab6-17a10fa7f346.gif"
                   alt="Math" width="1600" height="844"></p>
@@ -201,12 +204,14 @@ bubblePath.addLine(to: bottomLeft(borderRadius, 0))
 bubblePath.addCurve(to: bottomLeft(0, borderRadius), controlPoint1: bottomLeft(borderRadius / 2, 0), controlPoint2: bottomLeft(0, borderRadius / 2))
 bubblePath.close()</code></pre>
               <p>In the same way, I added the different tooltip arrows to the path. I now had a
-                <code>UIBezierPath</code> object describing the tooltip shape, but my storyboard was still empty.</p>
+                <code>UIBezierPath</code> object describing the tooltip shape, but my storyboard was still empty.
+              </p>
               <h2>Step 4: Let’s Paint</h2>
               <p>The last thing I needed to do before switching to the storyboard, was making sure the path was painted.
                 <code>UIKit</code> lets you stack as many layers on top of each other as you like while reusing the same
                 shape definition. I split the tooltip into three layers (shadow, border and fill) and inserted them into
-                the custom view:</p>
+                the custom view:
+              </p>
               <pre><code class="language-swift">// Shadow Layer
 let shadowShape = CAShapeLayer()
 shadowShape.path = bubblePath.cgPath
