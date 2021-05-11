@@ -1,6 +1,6 @@
 <!doctype html>
 <html data-n-head-ssr lang="en" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
-<base target="_top" href="/test">
+<base target="_top" href="test">
 
 <head>
   <title>Vue 3: A Modern Setup That Will Save You Time - Simon Wuyts</title>
@@ -20,26 +20,26 @@
     content="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/adc44668-b73f-4c3a-9014-a501efa93e9b.jpg">
   <meta data-n-head="ssr" data-hid="twitterimage" property="twitter:image"
     content="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/adc44668-b73f-4c3a-9014-a501efa93e9b.jpg">
-  <link data-n-head="ssr" rel="icon" type="image/png" href="/favicon.png">
+  <link data-n-head="ssr" rel="icon" type="image/png" href="favicon.png">
   <link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://rsms.me/inter/inter.css">
   <link data-n-head="ssr" rel="alternate" type="application/rss+xml" href="https://www.simonwuyts.com/articles/feed.xml"
     title="Simon Wuyts - Interaction Designer & Front-end Developer">
   <link data-n-head="ssr" rel="alternate" type="application/json" href="https://www.simonwuyts.com/articles/feed.json"
     title="Simon Wuyts - Interaction Designer & Front-end Developer">
-  <link rel="preload" href="/_nuxt/ef6f9da.js" as="script">
-  <link rel="preload" href="/_nuxt/3bad845.js" as="script">
-  <link rel="preload" href="/_nuxt/vendors/app.291a06d.css" as="style">
-  <link rel="preload" href="/_nuxt/2ff9a9a.js" as="script">
-  <link rel="preload" href="/_nuxt/app.12ec74d.css" as="style">
-  <link rel="preload" href="/_nuxt/d04c38a.js" as="script">
-  <link rel="preload" href="/_nuxt/pages/articles/_slug.3ff2d76.css" as="style">
-  <link rel="preload" href="/_nuxt/0ef0fba.js" as="script">
-  <link rel="preload" href="/_nuxt/aa4b8e5.js" as="script">
-  <link rel="preload" href="/_nuxt/19c0f32.js" as="script">
-  <link rel="stylesheet" href="/_nuxt/vendors/app.291a06d.css">
-  <link rel="stylesheet" href="/_nuxt/app.12ec74d.css">
-  <link rel="stylesheet" href="/_nuxt/pages/articles/_slug.3ff2d76.css">
-  <link rel="preload" href="/_nuxt/static/1620629395/articles/vue-3-a-modern-setup-that-will-save-you-time/payload.js"
+  <link rel="preload" href="_nuxt/ef6f9da.js" as="script">
+  <link rel="preload" href="_nuxt/3bad845.js" as="script">
+  <link rel="preload" href="_nuxt/vendors/app.291a06d.css" as="style">
+  <link rel="preload" href="_nuxt/2ff9a9a.js" as="script">
+  <link rel="preload" href="_nuxt/app.12ec74d.css" as="style">
+  <link rel="preload" href="_nuxt/d04c38a.js" as="script">
+  <link rel="preload" href="_nuxt/pages/articles/_slug.3ff2d76.css" as="style">
+  <link rel="preload" href="_nuxt/0ef0fba.js" as="script">
+  <link rel="preload" href="_nuxt/aa4b8e5.js" as="script">
+  <link rel="preload" href="_nuxt/19c0f32.js" as="script">
+  <link rel="stylesheet" href="_nuxt/vendors/app.291a06d.css">
+  <link rel="stylesheet" href="_nuxt/app.12ec74d.css">
+  <link rel="stylesheet" href="_nuxt/pages/articles/_slug.3ff2d76.css">
+  <link rel="preload" href="_nuxt/static/1620629395/articles/vue-3-a-modern-setup-that-will-save-you-time/payload.js"
     as="script">
 </head>
 
@@ -62,7 +62,7 @@
             </filter>
           </defs>
         </svg>
-        <nav class="c-navigation"><a href="/" class="c-navigation__logo nuxt-link-active"><svg
+        <nav class="c-navigation"><a href="" class="c-navigation__logo nuxt-link-active"><svg
               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" preserveAspectRatio="none" class="c-logo">
               <defs>
                 <mask id="logoMask">
@@ -79,15 +79,15 @@
               </defs>
               <circle cx="32" cy="32" r="32" fill="currentColor" mask="url(#logoMask)" class="c-logo__circle"></circle>
             </svg> <span class="sr-only">Home</span></a>
-          <div class="c-navigation__left"><a href="/" class="c-navigation__item">
+          <div class="c-navigation__left"><a href="" class="c-navigation__item">
               Home
-            </a> <a href="/work" class="c-navigation__item">
+            </a> <a href="work" class="c-navigation__item">
               Work
-            </a> <a href="/about" class="c-navigation__item">
+            </a> <a href="about" class="c-navigation__item">
               About
-            </a> <a href="/articles" class="c-navigation__item c-navigation__item--active">
+            </a> <a href="articles" class="c-navigation__item c-navigation__item--active">
               Articles
-            </a> <a href="/contact" class="c-navigation__item">
+            </a> <a href="contact" class="c-navigation__item">
               Contact
             </a></div>
         </nav>
@@ -161,7 +161,8 @@ yarn
                 <code>postcss.config.js</code> file and install any plugin you might need. I like to use the <a
                   href="https://github.com/csstools/postcss-preset-env"><code>postcss-preset-env</code></a> plugin,
                 which lets you write modern CSS and polyfills it based on <a
-                  href="https://github.com/browserslist/browserslist">the browsers you want to support.</a></p>
+                  href="https://github.com/browserslist/browserslist">the browsers you want to support.</a>
+              </p>
               <p>First, install the plugin by running</p>
               <pre><code>yarn add -D postcss-preset-env
 </code></pre>
@@ -173,7 +174,8 @@ yarn
 }
 </code></pre>
               <p>The <code>stage</code> property defines how many experimental features you want to enable, from
-                <code>0</code> (experimental) through <code>4</code> (stable).</p>
+                <code>0</code> (experimental) through <code>4</code> (stable).
+              </p>
               <p>You can now write modern CSS while Vite will take care of translating it to the browser:</p>
               <pre><code class="language-css">@import '_base.css';
 
@@ -198,7 +200,8 @@ p {
 </code></pre>
               <p>It's up to you how and where you want to load your CSS styles. You can either use the
                 <code>&lt;style></code> block in your Single File Components or import it directly in your
-                <code>main.js</code> file.</p>
+                <code>main.js</code> file.
+              </p>
               <h3>A note about SCSS</h3>
               <p>Sometimes I still prefer the power of SCSS over CSS. Luckily, Vite supports pre-processors. All you
                 need to do is install it:</p>
@@ -280,7 +283,7 @@ export default defineComponent({
                 <!---->
                 <div class="c-social__secondary">
                   Find me online or
-                  <a href="/contact">get in touch</a>
+                  <a href="contact">get in touch</a>
                 </div>
               </h3>
               <ul class="c-social-links">
@@ -310,13 +313,13 @@ export default defineComponent({
     </div>
   </div>
   <script>window.__NUXT__ = { staticAssetsBase: "/_nuxt/static/1620629395", layout: "default", error: null, serverRendered: !0, routePath: "/articles/vue-3-a-modern-setup-that-will-save-you-time", config: {} }</script>
-  <script src="/_nuxt/ef6f9da.js" defer></script>
-  <script src="/_nuxt/0ef0fba.js" defer></script>
-  <script src="/_nuxt/aa4b8e5.js" defer></script>
-  <script src="/_nuxt/19c0f32.js" defer></script>
-  <script src="/_nuxt/3bad845.js" defer></script>
-  <script src="/_nuxt/2ff9a9a.js" defer></script>
-  <script src="/_nuxt/d04c38a.js" defer></script>
+  <script src="_nuxt/ef6f9da.js" defer></script>
+  <script src="_nuxt/0ef0fba.js" defer></script>
+  <script src="_nuxt/aa4b8e5.js" defer></script>
+  <script src="_nuxt/19c0f32.js" defer></script>
+  <script src="_nuxt/3bad845.js" defer></script>
+  <script src="_nuxt/2ff9a9a.js" defer></script>
+  <script src="_nuxt/d04c38a.js" defer></script>
 </body>
 
 </html>
