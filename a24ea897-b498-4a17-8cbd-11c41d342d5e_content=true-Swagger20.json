@@ -7,7 +7,7 @@
     "contact": {}
   },
   "host": "www.example.com",
-  "basePath": "/",
+  "basePath": ",
   "schemes": [
     "https"
   ],
@@ -18,7 +18,7 @@
     "application/json"
   ],
   "paths": {
-    "/api/exs/store": {
+    api/exs/store": {
       "get": {
         "description": "| | |\r\n|--|--|\r\n1 | redirect มาที่ https://`{{host}}`/api/exs/store?redirect=`{{url_redirect}}`&transection=`{{transection}}`&exId=1\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | สร้างหรือแก้ไขข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n---\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam ที่ถูกสร้างหรือแก้ไข\r\n2 | name | คือ ชื่อ exam ที่ถูกสร้างหรือแก้ไข\r\n3 | transection | คือ `{{transection}}` ที่ได้ส่งมา",
         "summary": "createEx",
@@ -61,7 +61,7 @@
         }
       }
     },
-    "/api/exs/user": {
+    api/exs/user": {
       "get": {
         "description": "| | |\r\n|--|--|\r\n1 | redirect มาที่ `{{url_deep}}`/api/exs/user?redirect=`{{url_redirect}}`&transection=`{{transection}}`&timeLimit=`{{secondTime}}`&exId=`1`&passScore=`50`\r\n2 | ส่ง access_token มากับ hearder  Authorization Bearer `{{access_token}}`\r\n3 | ทำข้อสอบเสร็จ จะส่งข้อมูลกลับไปยัง `{{url_redirect}}`\r\n\r\n### ข้อมูลที่ต้องส่งมา (request)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | redirect | ลิ่งที่จะส่งกลับ\r\n2 | transection | \r\n3 | timeLimit | ระบุจำนวนเวลาในการทำแบบฝึกหัด( วินาที )\r\n4 | exId | ระบุ exam ที่ต้องการ\r\n5 | passScore | เกณร์คะแนนผ่านแบบฝึกหัด ( เปอร์เช็น )\r\n\r\n---\r\n\r\n| Header | Value |\r\n|---|---|\r\nAuthorization | Barer `USER_ACCESS_TOKEN`\r\n\r\n---\r\n\r\n### ข้อมูลที่ส่งกลับไป (response)\r\n| | Key | Value\r\n|--|--|--|\r\n1 | exId | คือ id exam testing\r\n2 | score | คือ คะแนนที่ทำได้\r\n3 | duration | คือ เวลาที่ใช้ไป\r\n4 | transection | คือ `{{transection}}` ที่ได้ส่งมา\r\n5 | code | คือ keyid ของ log\r\n6 | isPass | complete คือสอบผ่าน ส่วน not-complete คือสอบไม่ผ่าน\r\n7 | rawScore | คือ คะแนนดิบ\r\n8 | maxScore | คือ คะแนนเต็ม\r\n9 | timetable_id | ",
         "summary": "testingEx",
@@ -118,7 +118,7 @@
         }
       }
     },
-    "/api/exs/log": {
+    api/exs/log": {
       "get": {
         "description": "get Log ดูแบบฝึกหัดย้อยหลัง",
         "summary": "getLogดูแบบฝึกหัดย้อยหลัง",
@@ -154,7 +154,7 @@
         }
       }
     },
-    "/api/exs/report/{idEx}": {
+    api/exs/report/{idEx}": {
       "get": {
         "description": "get Report",
         "summary": "getReport",
@@ -183,7 +183,7 @@
         }
       }
     },
-    "/api/content/excel": {
+    api/content/excel": {
       "post": {
         "description": "| key | type |\r\n|--|--|\r\nfile_upload | file\r\n\r\nดาวน์โหลด ไฟล์รูปแบบ\r\nhttps://skill.deep.go.th/api/content/excel-format\r\n\r\nstatus 200\r\n```json\r\n{\r\n    \"code\": 200,\r\n    \"status\": \"success\",\r\n    \"list\": [\r\n        {\r\n            \"exId\": 221,\r\n            \"name\": \"AMSF\"\r\n        }\r\n    ]\r\n}\r\n```",
         "summary": "importexcel",
@@ -204,7 +204,7 @@
         }
       }
     },
-    "/api/account": {
+    api/account": {
       "post": {
         "description": "\r\nหลังจาก มีการ register เสร็จ\r\nส่งข้อมูล account เพื่อบันทึกข้อมูล\r\n\r\n---\r\nresponse\r\n\r\n```json\r\n{\r\n    \"code\": 200,\r\n    \"status\": \"success\"\r\n}\r\n```",
         "summary": "register",
@@ -225,14 +225,14 @@
         }
       }
     },
-    "/api/notifications/unread-count": {
+    api/notifications/unread-count": {
       "get": {
-        "description": "/notifications/unread-count",
-        "summary": "/notifications/unread-count",
+        "description": notifications/unread-count",
+        "summary": notifications/unread-count",
         "tags": [
           "notification"
         ],
-        "operationId": "/notifications/unread-count",
+        "operationId": notifications/unread-count",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -246,14 +246,14 @@
         }
       }
     },
-    "/api/notifications/read": {
+    api/notifications/read": {
       "patch": {
-        "description": "/notifications/read",
-        "summary": "/notifications/read",
+        "description": notifications/read",
+        "summary": notifications/read",
         "tags": [
           "notification"
         ],
-        "operationId": "/notifications/read",
+        "operationId": notifications/read",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -278,14 +278,14 @@
         }
       }
     },
-    "/api/notifications/:id": {
+    api/notifications/:id": {
       "put": {
-        "description": "/notifications/:id",
-        "summary": "/notifications/:id",
+        "description": notifications/:id",
+        "summary": notifications/:id",
         "tags": [
           "notification"
         ],
-        "operationId": "/notifications/:id",
+        "operationId": notifications/:id",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -299,14 +299,14 @@
         }
       }
     },
-    "/api/notifications": {
+    api/notifications": {
       "get": {
-        "description": "/notifications",
-        "summary": "/notifications",
+        "description": notifications",
+        "summary": notifications",
         "tags": [
           "notification"
         ],
-        "operationId": "/notifications",
+        "operationId": notifications",
         "deprecated": false,
         "produces": [
           "application/json"
@@ -363,8 +363,8 @@
         }
       },
       "post": {
-        "description": "/notifications",
-        "summary": "/notifications",
+        "description": notifications",
+        "summary": notifications",
         "tags": [
           "notification"
         ],
@@ -385,8 +385,8 @@
         }
       },
       "delete": {
-        "description": "/notifications",
-        "summary": "/notifications",
+        "description": notifications",
+        "summary": notifications",
         "tags": [
           "notification"
         ],
@@ -412,7 +412,7 @@
         }
       }
     },
-    "/api/subjects/user": {
+    api/subjects/user": {
       "get": {
         "description": "description\r\n```\r\napi ข้อมูลการเรียนรายบุคล\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
         "summary": "user",
@@ -476,7 +476,7 @@
         }
       }
     },
-    "/api/subjects/list": {
+    api/subjects/list": {
       "get": {
         "description": "description\r\n```\r\napi ข้อมูลวิชา\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n",
         "summary": "list",
@@ -533,7 +533,7 @@
         }
       }
     },
-    "/api/subjects/user-list": {
+    api/subjects/user-list": {
       "get": {
         "description": "description\r\n```\r\napi ข้อมูลการเรียนรายบุคลแบบหลายคน\r\n```\r\nparams\r\n\r\n| key | required | description | example\r\n--|--|--|--\r\ncitizen_id | true | เลขบัตรประจำตัว | 2151321154118\r\nfilter | false | ใช้ค้นหา | {\"name\":\"POD\"}\r\nlimit | false | กำหนดจำนวนข้อมูลต่อ หน้าลิสข้อมูล | 10\r\npage | false | เลขหน้าลิสข้อมูล | 1\r\norder_by | false | กำหนดการเรียงข้อมูล | createdBy,-detail.userSubjectId\r\n\r\n",
         "summary": "user-list",
