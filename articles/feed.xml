@@ -146,7 +146,7 @@ self.layer.insertSublayer(fillShape, at: 0)</code></pre>
             <guid>vuejs-and-d3-a-chart-waiting-to-happen</guid>
             <pubDate>Fri, 29 Mar 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[<p>This article is the summary of a talk I gave at the Vue.js Antwerp meetup. For a while now, D3.js has been the go-to JavaScript library for creating custom data visualizations. However, it&rsquo;s sometimes perceived as difficult to get started with or unsuitable for small projects. In this article I will show you how combining D3 and Vue can make your quest for the perfect data visualization a whole lot easier.</p>]]></description>
-            <content:encoded><![CDATA[<figure><iframe id="talk_frame_506814" class="wide" style="border: 0; padding: 0; background: transparent;" src=/speakerdeck.com/player/cdacbd922db34e72a62bf35dec27d95b" width="710" height="399" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+            <content:encoded><![CDATA[<figure><iframe id="talk_frame_506814" class="wide" style="border: 0; padding: 0; background: transparent;" src="//speakerdeck.com/player/cdacbd922db34e72a62bf35dec27d95b" width="710" height="399" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
 <p>Right now, I&rsquo;m working on a project called uman.ai, together with <a href="http://ml6.eu/" target="_blank" rel="noreferrer noopener">ML6</a>, a Ghent-based company specialized in Machine Learning. <a href="http://uman.ai/" target="_blank" rel="noreferrer noopener">Uman.ai</a> explores new ways of gaining insight in talents and skills within organizations with the help of Artificial Intelligence. I took on the challenge to find a good interactive visualization for this model.</p>
 <p>After making some first rough sketches, I started exploring well-known existing libraries like <strong>Chart.js</strong> and <strong>Highcharts</strong>. However, none of them turned out to be a good fit for this very specific situation. And this is where <a href="http://d3js.org/" target="_blank" rel="noreferrer noopener"> <strong>D3.js</strong> </a> got in and I first got the idea for this talk.</p>
 <h2>D3.js</h2>
@@ -387,11 +387,11 @@ export default {
 <pre><code class="language-markup">&lt;svg width="0" height="0" xmlns="http://www.w3.org/2000/svg"&gt;
 	&lt;defs&gt;
 		&lt;filter id="handdrawn" x="-20%" y="-20%" width="140%" height="140%"&gt;
-			&lt;feTurbulence type="fractalNoise" basefrequency="0.001 0.01" numoctaves="26" stitchtiles="stitch" result="turbulence&gt;
-			&lt;feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xchannelselector="R" ychannelselector="G" result="displacementMap&gt;
-			&lt;feGaussianBlur in="displacementMap" stddeviation="1" color-interpolation-filters="sRGB" result="blur&gt;
-			&lt;feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="contrast&gt;
-			&lt;feOffset in="contrast" dy="2&gt;
+			&lt;feTurbulence type="fractalNoise" basefrequency="0.001 0.01" numoctaves="26" stitchtiles="stitch" result="turbulence"/&gt;
+			&lt;feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xchannelselector="R" ychannelselector="G" result="displacementMap"/&gt;
+			&lt;feGaussianBlur in="displacementMap" stddeviation="1" color-interpolation-filters="sRGB" result="blur"/&gt;
+			&lt;feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="contrast"/&gt;
+			&lt;feOffset in="contrast" dy="2"/&gt;
 		&lt;/filter&gt;
 	&lt;/defs&gt;
 &lt;/svg&gt;
