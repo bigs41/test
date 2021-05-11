@@ -1,0 +1,118 @@
+<!doctype html>
+<html data-n-head-ssr lang="en" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>Xcode as a Design Tool: the Customizable Tooltips Case - Simon Wuyts</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" property="og:type" content="website"><meta data-n-head="ssr" property="twitter:card" content="summary_large_image"><meta data-n-head="ssr" data-hid="description" name="description" content="<p>The other day I was reviewing the implementation of an iOS app design I helped design. While most of the design was looking great, one thing immediately struck my eye. The tooltips I carefully crafted didn&amp;rsquo;t look at all like how I intended them to look. When I asked the developers about it, they said it would be too difficult to implement them without using an existing framework (and its restricted styling options).</p>"><meta data-n-head="ssr" data-hid="ogdescription" property="og:description" content="<p>The other day I was reviewing the implementation of an iOS app design I helped design. While most of the design was looking great, one thing immediately struck my eye. The tooltips I carefully crafted didn&amp;rsquo;t look at all like how I intended them to look. When I asked the developers about it, they said it would be too difficult to implement them without using an existing framework (and its restricted styling options).</p>"><meta data-n-head="ssr" data-hid="ogtitle" property="og:title" content="Xcode as a Design Tool: the Customizable Tooltips Case"><meta data-n-head="ssr" data-hid="twittertitle" property="twitter:title" content="Xcode as a Design Tool: the Customizable Tooltips Case"><meta data-n-head="ssr" data-hid="ogimage" property="og:image" content="https://www.simonwuyts.com/images/share.png"><meta data-n-head="ssr" data-hid="twitterimage" property="twitter:image" content="https://www.simonwuyts.com/images/share.png"><base href="/test/"><link data-n-head="ssr" rel="icon" type="image/png" href="/favicon.png"><link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://rsms.me/inter/inter.css"><link data-n-head="ssr" rel="alternate" type="application/rss+xml" href="https://www.simonwuyts.com/articles/feed.xml" title="Simon Wuyts - Interaction Designer & Front-end Developer"><link data-n-head="ssr" rel="alternate" type="application/json" href="https://www.simonwuyts.com/articles/feed.json" title="Simon Wuyts - Interaction Designer & Front-end Developer"><link rel="preload" href="/test/_nuxt/905e205.js" as="script"><link rel="preload" href="/test/_nuxt/3bad845.js" as="script"><link rel="preload" href="/test/_nuxt/vendors/app.291a06d.css" as="style"><link rel="preload" href="/test/_nuxt/7dbc641.js" as="script"><link rel="preload" href="/test/_nuxt/app.12ec74d.css" as="style"><link rel="preload" href="/test/_nuxt/d04c38a.js" as="script"><link rel="preload" href="/test/_nuxt/pages/articles/_slug.3ff2d76.css" as="style"><link rel="preload" href="/test/_nuxt/0ef0fba.js" as="script"><link rel="preload" href="/test/_nuxt/aa4b8e5.js" as="script"><link rel="preload" href="/test/_nuxt/19c0f32.js" as="script"><link rel="stylesheet" href="/test/_nuxt/vendors/app.291a06d.css"><link rel="stylesheet" href="/test/_nuxt/app.12ec74d.css"><link rel="stylesheet" href="/test/_nuxt/pages/articles/_slug.3ff2d76.css"><link rel="preload" href="/test/_nuxt/static/1620734140/articles/xcode-as-a-design-tool-the-customizable-tooltips-case/payload.js" as="script">
+  </head>
+  <body>
+    <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div class="c-main"><svg width="0" height="0" xmlns="http://www.w3.org/2000/svg"><defs><filter id="titleFilter" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.001 0.01" numOctaves="26" seed="1" stitchTiles="stitch" result="turbulence"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" result="displacementMap" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap><feGaussianBlur in="displacementMap" stdDeviation="1" color-interpolation-filters="sRGB" result="blur"></feGaussianBlur><feColorMatrix in="blur" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -7" result="contrast"></feColorMatrix><feOffset in="contrast" dy="2"></feOffset></filter></defs></svg> <nav class="c-navigation"><a href="/test/" class="c-navigation__logo nuxt-link-active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" preserveAspectRatio="none" class="c-logo"><defs><mask id="logoMask"><circle cx="32" cy="32" r="32" fill="#FFF"></circle> <g stroke="#000" fill="none" stroke-linecap="round" stroke-width="2"><path d="M44.963 26.545c.444-.505.46-1.256-.014-1.743l-5.854-6.037c-1.852-1.91-4.28-2.865-6.708-2.865s-4.856.955-6.708 2.865c-3.705 3.82-3.705 10.015 0 13.835l5.87 6.052c.243.23.548.348.851.348.302 0 .602-.118.838-.361l5.857-6.04 5.867-6.054z" class="c-logo__line"></path> <path d="M19.737 38.155c-.444.505-.46 1.256.014 1.743l5.854 6.037c1.852 1.91 4.28 2.865 6.708 2.865s4.856-.955 6.708-2.865c3.705-3.82 3.705-10.015 0-13.835l-5.87-6.052a1.246 1.246 0 0 0-.851-.348c-.302 0-.602.118-.838.361l-5.857 6.04-5.867 6.054z" class="c-logo__line"></path></g></mask></defs> <circle cx="32" cy="32" r="32" fill="currentColor" mask="url(#logoMask)" class="c-logo__circle"></circle></svg> <span class="sr-only">Home</span></a> <div class="c-navigation__left"><a href="/test/" class="c-navigation__item">
+      Home
+    </a> <a href="/test/work" class="c-navigation__item">
+      Work
+    </a> <a href="/test/about" class="c-navigation__item">
+      About
+    </a> <a href="/test/articles" class="c-navigation__item c-navigation__item--active">
+      Articles
+    </a> <a href="/test/contact" class="c-navigation__item">
+      Contact
+    </a></div></nav> <div class="c-content"><div class="c-content__center"><div class="c-date enter-fade-in">July 5, 2017</div> <h1 class="c-title enter-fade-up"><div aria-hidden="true" class="c-title__border"><span class="c-title__inner"> Xcode as a Design Tool: the Customizable Tooltips Case </span></div> <div class="c-title__text"><span> Xcode as a Design Tool: the Customizable Tooltips Case </span></div></h1> <ul class="c-tags enter-fade-up enter-delay-1"><li class="c-tags__item"><span class="c-tags__label">
+      swift
+    </span></li><li class="c-tags__item"><span class="c-tags__label">
+      uidesign
+    </span></li><li class="c-tags__item"><span class="c-tags__label">
+      xcode
+    </span></li></ul> <div class="lead enter-fade-up enter-delay-1"><p>The other day I was reviewing the implementation of an iOS app design I helped design. While most of the design was looking great, one thing immediately struck my eye. The tooltips I carefully crafted didn’t look at all like how I intended them to look. When I asked the developers about it, they said it would be too difficult to implement them without using an existing framework (and its restricted styling options).</p></div> <div class="enter-fade-up enter-delay-2"><figure><img src="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/5a0f5548-ad4d-4a92-a284-35448444a69b.png" alt="Design vs Implementation" width="1614" height="288"></figure>
+<p>That made me wonder if I could find an easier way to sneak the right tooltips in. I started diving a bit deeper into drawing and styling custom shapes in Swift/Xcode. Since the tooltips in my design don’t need complex animations or interactions, it was not my intent to write a custom tooltip framework (since they already exist). What I did want to explore was how a designer with a base knowledge of programming could contribute to a better handoff of custom styled controls.</p>
+<blockquote>
+<p>What if I could make it as easy for the developer to implement my tooltip design as to drag a button on a storyboard</p>
+</blockquote>
+<p>After digging through <a href="https://developer.apple.com/reference/coregraphics" target="_blank" rel="noreferrer noopener">some</a> <a href="https://developer.apple.com/reference/uikit/uibezierpath" target="_blank" rel="noreferrer noopener">useful</a> <a href="https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/ImplementingACustomControl.html" target="_blank" rel="noreferrer noopener">parts</a> of Apple’s iOS development documentation, I decided to address my challenge step by step.</p>
+<h2>Step 1: Goals</h2>
+<p>Before I started writing code, I made a list of goals and requirements:</p>
+<ul>
+<li>The tooltip should look exactly the way I want it to look (including the tilted tip, multiple shadows and padding).</li>
+<li>It should be scalable and should play nice with <a href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/index.html" target="_blank" rel="noreferrer noopener">Auto Layout</a>.</li>
+<li>It should be able to contain whatever objects you want it to contain, not just text.</li>
+<li>Adding a tooltip should be as easy as dragging and dropping an object.</li>
+<li>Changing the style of the tooltip should be a matter of tweaking a few variables and should not require much knowledge of the design logic itself.</li>
+</ul>
+<h2>Step 2: The Inspectables</h2>
+<p><img src="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/92204455-ef19-4e40-9416-2e9141dbefad.png" alt="Inspectables" width="357" height="453"></p>
+<p>Turns out, you can add the <code>@IBInspectable</code> annotation to make parameters adjustable from the inspector. That's even better than I expected.After creating a new Cocoa class in Xcode (File > New > File…), naming it <code>TooltipView.swift</code> and making it a subclass of <code>UIView</code>, I added some variables to make things customizable.</p>
+<pre><code class="language-swift">@IBInspectable var arrowTopLeft: Bool = false
+@IBInspectable var arrowTopCenter: Bool = true
+@IBInspectable var arrowTopRight: Bool = false
+@IBInspectable var arrowBottomLeft: Bool = false
+@IBInspectable var arrowBottomCenter: Bool = false
+@IBInspectable var arrowBottomRight: Bool = false
+	
+@IBInspectable var fillColor: UIColor = UIColor.white
+	
+@IBInspectable var borderColor: UIColor = UIColor(red:0, green:0, blue:0, alpha:0.05)
+@IBInspectable var borderRadius: CGFloat = 18
+@IBInspectable var borderWidth: CGFloat = 1
+	
+@IBInspectable var shadowColor: UIColor = UIColor(red:0, green:0, blue:0, alpha:0.14)
+@IBInspectable var shadowOffsetX: CGFloat = 0
+@IBInspectable var shadowOffsetY: CGFloat = 2
+@IBInspectable var shadowBlur: CGFloat = 10</code></pre>
+<h2>Step 3: Here’s Where the Math Comes in</h2>
+<p>To translate the tooltip shape to code, I first mapped it on an X and Y axis. Based on three variables, I was able to define all the necessary coordinates: <code>tooltipWidth</code>, <code>tooltipHeight</code> and <code>borderRadius</code>.</p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/feaf4fde-eb5f-4d75-9ab6-17a10fa7f346.gif" alt="Math" width="1600" height="844"></p>
+<p><span style="background-color:#eceff1;font-family:'Roboto Mono',monospace;font-size:18px">// Define Bubble Shape</span>Translating this shape to Swift code wasn’t that hard, the result is even pretty readable:</p>
+<pre><code class="language-swift">let bubblePath = UIBezierPath()
+	
+// Top left corner
+bubblePath.move(to: topLeft(0, borderRadius))
+bubblePath.addCurve(to: topLeft(borderRadius, 0), controlPoint1: topLeft(0, borderRadius / 2), controlPoint2: topLeft(borderRadius / 2, 0))
+	
+// Top right corner
+bubblePath.addLine(to: topRight(borderRadius, 0))
+bubblePath.addCurve(to: topRight(0, borderRadius), controlPoint1: topRight(borderRadius / 2, 0), controlPoint2: topRight(0, borderRadius / 2))
+	
+// Bottom right corner
+bubblePath.addLine(to: bottomRight(0, borderRadius))
+bubblePath.addCurve(to: bottomRight(borderRadius, 0), controlPoint1: bottomRight(0, borderRadius / 2), controlPoint2: bottomRight(borderRadius / 2, 0))
+	
+// Bottom left corner
+bubblePath.addLine(to: bottomLeft(borderRadius, 0))
+bubblePath.addCurve(to: bottomLeft(0, borderRadius), controlPoint1: bottomLeft(borderRadius / 2, 0), controlPoint2: bottomLeft(0, borderRadius / 2))
+bubblePath.close()</code></pre>
+<p>In the same way, I added the different tooltip arrows to the path. I now had a <code>UIBezierPath</code> object describing the tooltip shape, but my storyboard was still empty.</p>
+<h2>Step 4: Let’s Paint</h2>
+<p>The last thing I needed to do before switching to the storyboard, was making sure the path was painted. <code>UIKit</code> lets you stack as many layers on top of each other as you like while reusing the same shape definition. I split the tooltip into three layers (shadow, border and fill) and inserted them into the custom view:</p>
+<pre><code class="language-swift">// Shadow Layer
+let shadowShape = CAShapeLayer()
+shadowShape.path = bubblePath.cgPath
+shadowShape.fillColor = fillColor.cgColor
+shadowShape.shadowColor = shadowColor.cgColor
+shadowShape.shadowOffset = CGSize(width: CGFloat(shadowOffsetX), height: CGFloat(shadowOffsetY))
+shadowShape.shadowRadius = CGFloat(shadowBlur)
+shadowShape.shadowOpacity = 0.8
+	
+// Border Layer
+let borderShape = CAShapeLayer()
+borderShape.path = bubblePath.cgPath
+borderShape.fillColor = fillColor.cgColor
+borderShape.strokeColor = borderColor.cgColor
+borderShape.lineWidth = CGFloat(borderWidth*2)
+	
+// Fill Layer
+let fillShape = CAShapeLayer()
+fillShape.path = bubblePath.cgPath
+fillShape.fillColor = fillColor.cgColor
+	
+// Add Sublayers
+self.layer.insertSublayer(shadowShape, at: 0)
+self.layer.insertSublayer(borderShape, at: 0)
+self.layer.insertSublayer(fillShape, at: 0)</code></pre>
+<h2>Step 5: The Proof of the Pudding</h2>
+<p>Time to put this brand new custom control to the test.</p>
+<p><img src="https://s3.eu-west-3.amazonaws.com/simonwuyts-portfolio/b6ba7f2e-0efa-4807-bf38-189b9fcf1a1f.gif" alt="Result" width="752" height="811"></p>
+<p>To my own surprise, I saw exactly the result I had hoped for: a responsive, easy-to-use, framework-free and customizable tooltip. Long story short: Xcode and Swift are remarkably easy when it comes to designing custom iOS controls. They might even spare you (and your developers) a headache.</p>
+<h3>TL;DR</h3>
+<p><strong>By mixing and matching some basic math, Xcode’s <code>@IBDesignable</code> and<code>@IBInspectable</code> functionality and a few lines of Swift code, even designers can deliver custom iOS controls.</strong></p>
+<p><a href="https://gist.github.com/simonwuyts/24c4ff3557b9ed9b2fa09cae2ec4fbb7" target="_blank" rel="noreferrer noopener">You can find the full result on Github.</a></p></div> <div class="c-social"><h3 class="c-social__title"><!----> <div class="c-social__secondary">
+      Find me online or
+      <a href="/test/contact">get in touch</a></div></h3> <ul class="c-social-links"><li class="c-social-links__item"><a href="https://www.twitter.com/simonwuyts" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" class="c-social-links__icon"><path d="M22.4592,6.01238 C21.6896,6.35373 20.8624,6.58442 19.9944,6.68815 C20.8803,6.15701 21.5609,5.31598 21.8813,4.31378 C21.052,4.80564 20.1336,5.16278 19.156,5.3552 C18.3732,4.52112 17.2579,4 16.0235,4 C13.6534,4 11.7317,5.92147 11.7317,8.29155 C11.7317,8.6279 11.7697,8.95546 11.8429,9.2696 C8.2761,9.0906 5.11376,7.38203 2.9971,4.78551 C2.62766,5.41935 2.41602,6.15656 2.41602,6.94309 C2.41602,8.43204 3.17365,9.74563 4.32524,10.5153 C3.6218,10.4929 2.95997,10.2999 2.3814,9.97846 C2.38099,9.99639 2.38099,10.0143 2.38099,10.0324 C2.38099,12.1118 3.86034,13.8463 5.8236,14.2406 C5.4635,14.3387 5.08435,14.3912 4.69295,14.3912 C4.41641,14.3912 4.14756,14.3642 3.88547,14.3142 C4.43162,16.0191 6.01654,17.26 7.89455,17.2945 C6.42577,18.4457 4.57528,19.1318 2.56454,19.1318 C2.21813,19.1318 1.87652,19.1114 1.54078,19.0717 C3.44004,20.2894 5.69592,21 8.11951,21 C16.0134,21 20.3302,14.4605 20.3302,8.78918 C20.3302,8.60314 20.326,8.41805 20.3177,8.23395 C21.1563,7.62886 21.8839,6.87302 22.4592,6.01238 Z"></path></svg> <span class="c-social-links__label">Twitter</span></a></li> <li class="c-social-links__item"><a href="https://medium.com/@simonwuyts" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" class="c-social-links__icon"><path d="M21.9288,6.61625 L15.8894,16.4716 L11.5719,9.42603 L15.0087,3.84105 C15.1668,3.58425 15.4947,3.46648 15.7792,3.54857 L21.9288,6.61625 Z M22,19.7818 C22,20.3517 21.504,20.5657 20.8923,20.2599 L16.1836,17.9055 L22,8.41393 L22,19.7818 Z M8.98814,19.9374 C8.98814,20.5049 8.57267,20.7616 8.0651,20.5078 L2.55379,17.7572 C2.24918,17.6049 1.99997,17.2017 1.99997,16.8611 L1.99997,4.1393 C1.99997,3.68523 2.33231,3.47987 2.7384,3.68294 L8.70478,6.66122 L8.98814,7.12362 L8.98814,19.9374 Z M15.2858,17.4566 L10,14.8137 L10,8.81372 L15.2858,17.4566 Z"></path></svg> <span class="c-social-links__label">Medium</span></a></li> <li class="c-social-links__item"><a href="https://www.github.com/simonwuyts" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" class="c-social-links__icon"><path d="M11.9991,2 C6.47774,2 2.00001,6.47712 2.00001,12.0006 C2.00001,16.4184 4.86504,20.1665 8.83877,21.489 C9.33909,21.5807 9.52142,21.272 9.52142,21.007 C9.52142,20.7696 9.51282,20.1407 9.50791,19.3062 C6.72636,19.9105 6.13948,17.9657 6.13948,17.9657 C5.68459,16.8105 5.02895,16.5029 5.02895,16.5029 C4.121,15.8824 5.09771,15.895 5.09771,15.895 C6.10143,15.9657 6.62936,16.9256 6.62936,16.9256 C7.52135,18.4537 8.97014,18.0125 9.53984,17.7565 C9.63069,17.1102 9.88914,16.6696 10.1746,16.4196 C7.95415,16.1672 5.61952,15.3093 5.61952,11.4773 C5.61952,10.3856 6.00934,9.49292 6.64902,8.79388 C6.54588,8.54089 6.20271,7.52417 6.74723,6.14739 C6.74723,6.14739 7.58643,5.87851 9.49686,7.17252 C10.2943,6.95073 11.1501,6.8398 12.0003,6.83594 C12.8499,6.8398 13.7051,6.95073 14.5038,7.17252 C16.413,5.87851 17.2509,6.14739 17.2509,6.14739 C17.7967,7.52417 17.4535,8.54089 17.351,8.79388 C17.9919,9.49292 18.3787,10.3856 18.3787,11.4773 C18.3787,15.3189 16.0403,16.1642 13.8131,16.4118 C14.1717,16.7205 14.4915,17.3308 14.4915,18.2637 C14.4915,19.6005 14.4792,20.6791 14.4792,21.007 C14.4792,21.2744 14.6597,21.5855 15.1668,21.4878 C19.1374,20.1629 22,16.4172 22,12.0006 C22,6.47712 17.5223,2 11.9991,2 Z"></path></svg> <span class="c-social-links__label">Github</span></a></li></ul></div></div></div></div></div></div><script>window.__NUXT__={staticAssetsBase:"/_nuxt/static/1620734140",layout:"default",error:null,serverRendered:!0,routePath:"/articles/xcode-as-a-design-tool-the-customizable-tooltips-case",config:{}}</script><script src="/test/_nuxt/905e205.js" defer></script><script src="/test/_nuxt/0ef0fba.js" defer></script><script src="/test/_nuxt/aa4b8e5.js" defer></script><script src="/test/_nuxt/19c0f32.js" defer></script><script src="/test/_nuxt/3bad845.js" defer></script><script src="/test/_nuxt/7dbc641.js" defer></script><script src="/test/_nuxt/d04c38a.js" defer></script>
+  </body>
+</html>
