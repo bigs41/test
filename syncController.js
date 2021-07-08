@@ -364,7 +364,7 @@ exports.syncUsers = async function (req, res, next) {
         var get = {}
             , db = help.get(con, 'oracle.database', 'sync')
             , tb = help.get(con, 'oracle.view.VIEW_USERS', 'VIEW_USERS')
-        if(moment().format('DD')==setDay){
+        if (moment().format('DD') == setDay) {
             await seq.query(`DROP TABLE IF EXISTS VIEW_USERS_OLD`);
             await seq.query(`CREATE TABLE VIEW_USERS_OLD LIKE VIEW_USERS`);
             await seq.query(`INSERT VIEW_USERS_OLD SELECT * FROM VIEW_USERS`);
@@ -429,11 +429,11 @@ exports.moveToOrg = async function (req, res, next) {
             "SECTION_CODE",
             "JOB_CODE"
         ]
-        for (let [DEPARTMENT_INDEX,DEPARTMENT] of Object.entries(dataDEPARTMENT)) {
+        for (let [DEPARTMENT_INDEX, DEPARTMENT] of Object.entries(dataDEPARTMENT)) {
             // console.log(DEPARTMENT);
 
             // DEPARTMENT.DEPARTMENT_NAME = (DEPARTMENT.DEPARTMENT_NAME).replace('-', '')
-            DEPARTMENT.sorting = help.getNumber(DEPARTMENT_INDEX)+1
+            DEPARTMENT.sorting = help.getNumber(DEPARTMENT_INDEX) + 1
             DEPARTMENT.org = collect(dataOrg).filter(org => {
                 return (org.code).match(/^.[0-9]+.[0-9]+.$/g) && org.name == DEPARTMENT.DEPARTMENT_NAME
             }).map(org => {
@@ -453,7 +453,7 @@ exports.moveToOrg = async function (req, res, next) {
                 return division.DEPARTMENT_CODE == DEPARTMENT.DEPARTMENT_CODE
             }).all()
             if (!help.empty(DEPARTMENT.DIVISIONLIST)) {
-                for (let [DIVISION_INDEX,DIVISION] of Object.entries(DEPARTMENT.DIVISIONLIST)) {
+                for (let [DIVISION_INDEX, DIVISION] of Object.entries(DEPARTMENT.DIVISIONLIST)) {
                     DIVISION.org = collect(dataOrg).filter(org => {
                         return (org.code).match(new RegExp(`^${DEPARTMENT.code}+`, 'g')) && org.name == DIVISION.DIVISION_NAME
                     }).map(org => {
@@ -468,13 +468,13 @@ exports.moveToOrg = async function (req, res, next) {
                     if (!help.empty(DIVISION.org)) {
                         listOrg.push(DIVISION.org)
                     }
-                    DIVISION.sorting = help.getNumber(DIVISION_INDEX)+1
+                    DIVISION.sorting = help.getNumber(DIVISION_INDEX) + 1
                     DIVISION.code = help.get(DIVISION, 'org.code', DEPARTMENT.code)
                     DIVISION.SECTIONLIST = collect(dataSECTION).filter(section => {
                         return section.DEPARTMENT_CODE == DIVISION.DEPARTMENT_CODE && section.DIVISION_CODE == DIVISION.DIVISION_CODE
                     }).all()
                     if (!help.empty(DIVISION.SECTIONLIST)) {
-                        for (let [SECTION_INDEX,SECTION] of Object.entries(DIVISION.SECTIONLIST)) {
+                        for (let [SECTION_INDEX, SECTION] of Object.entries(DIVISION.SECTIONLIST)) {
                             SECTION.org = collect(dataOrg).filter(org => {
                                 return (org.code).match(new RegExp(`^${DIVISION.code}+`, 'g')) && org.name == SECTION.SECTION_NAME
                             }).map(org => {
@@ -489,13 +489,13 @@ exports.moveToOrg = async function (req, res, next) {
                             if (!help.empty(SECTION.org)) {
                                 listOrg.push(SECTION.org)
                             }
-                            SECTION.sorting = help.getNumber(SECTION_INDEX)+1
+                            SECTION.sorting = help.getNumber(SECTION_INDEX) + 1
                             SECTION.code = help.get(SECTION, 'org.code', DIVISION.code)
                             SECTION.JOBLIST = collect(dataJOB).filter(job => {
                                 return job.DEPARTMENT_CODE == SECTION.DEPARTMENT_CODE && job.DIVISION_CODE == SECTION.DIVISION_CODE && job.SECTION_CODE == SECTION.SECTION_CODE
                             }).all()
-                            for (const [JOB_INDEX,JOB] of Object.entries(SECTION.JOBLIST)) {
-                                JOB.sorting = help.getNumber(JOB_INDEX)+1
+                            for (const [JOB_INDEX, JOB] of Object.entries(SECTION.JOBLIST)) {
+                                JOB.sorting = help.getNumber(JOB_INDEX) + 1
                                 JOB.org = collect(dataOrg).filter(org => {
                                     return (org.code).match(new RegExp(`^${SECTION.code}+`, 'g')) && org.name == JOB.JOB_NAME
                                 }).map(org => {
@@ -517,8 +517,8 @@ exports.moveToOrg = async function (req, res, next) {
             }
         }
         let inId = help.pluck(listOrg, 'id')
-        
-        
+
+
         let notIn = collect(dataOrg).whereNotIn('id', inId)
             .map(org => {
                 let collection = collect((org.code).split('.')).filter().all()
@@ -577,8 +577,8 @@ exports.moveToOrg = async function (req, res, next) {
                 }
                 return org
             }).all()
-          console.log(listOrg.length,notIn.length)  
-        let totle = listOrg.length+notIn.length
+        console.log(listOrg.length, notIn.length)
+        let totle = listOrg.length + notIn.length
         // let datalength = 0
         // Bar.init(totle)
         for (const organization of listOrg) {
@@ -589,8 +589,8 @@ exports.moveToOrg = async function (req, res, next) {
                         help.query('ml_organization_group').getAttributes(), ['id', 'createdAt', 'updatedAt']
                     ))
                 )
-                // datalength = datalength+1
-                // Bar.update(datalength)
+            // datalength = datalength+1
+            // Bar.update(datalength)
         }
         for (const organization of notIn) {
             await help.query('ml_organization_group')
@@ -600,8 +600,8 @@ exports.moveToOrg = async function (req, res, next) {
                         help.query('ml_organization_group').getAttributes(), ['id', 'createdAt', 'updatedAt']
                     ))
                 )
-                // datalength = datalength+1
-                // Bar.update(datalength)
+            // datalength = datalength+1
+            // Bar.update(datalength)
         }
         // console.log(dataOrg);
 
@@ -620,7 +620,7 @@ exports.moveToOrg = async function (req, res, next) {
     }
 }
 exports.moveToPosition = async function (req, res, next) {
-    try{
+    try {
         var nonres = help.get(req, 'query.nonres', false) || false
 
         if (help.empty(res)) {
@@ -634,27 +634,27 @@ exports.moveToPosition = async function (req, res, next) {
         }
 
         await seq.transaction(async t => {
-          let work = await help.query('VIEW_USERS_WORK_LINE').except(["id", "createdAt", "updatedAt"]).toJson()
-        //   Bar.init(work.length)
-          let numWork = 1
-          for (const position of work) {
-            let pos = await help.query('ml_position').where('position', position.WORK_LINE_NAME).createUpdate(
-              {
-                position: position.WORK_LINE_NAME,
-                status: 'enable',
-                WORK_LINE_CODE: position.WORK_LINE_CODE,
-              }
-            )
-            let pos_tang = await help.query('ml_position_tang').where('positionId',pos.id).first()
-            let name = help.get(pos_tang,'name','ยังไม่ระบุ')
-            await help.query('ml_position_tang').where('positionId',pos.id).createUpdate({
-                positionId:pos.id,
-                name
-            })
-            numWork = numWork+1
-            // Bar.update(numWork)
-          }
-          get = work
+            let work = await help.query('VIEW_USERS_WORK_LINE').except(["id", "createdAt", "updatedAt"]).toJson()
+            //   Bar.init(work.length)
+            let numWork = 1
+            for (const position of work) {
+                let pos = await help.query('ml_position').where('position', position.WORK_LINE_NAME).createUpdate(
+                    {
+                        position: position.WORK_LINE_NAME,
+                        status: 'enable',
+                        WORK_LINE_CODE: position.WORK_LINE_CODE,
+                    }
+                )
+                let pos_tang = await help.query('ml_position_tang').where('positionId', pos.id).first()
+                let name = help.get(pos_tang, 'name', 'ยังไม่ระบุ')
+                await help.query('ml_position_tang').where('positionId', pos.id).createUpdate({
+                    positionId: pos.id,
+                    name
+                })
+                numWork = numWork + 1
+                // Bar.update(numWork)
+            }
+            get = work
         })
 
         if (nonres) {
@@ -690,7 +690,7 @@ exports.moveToUsers = async function (req, res, next) {
         version = _.head((help.get(version, 'version', '0')).split('-'))
         ver = parseFloat(version)
         let user = []
-        let isManager = help.reqJsonConverte(help.get(req.input,'',[]))
+        let isManager = help.reqJsonConverte(help.get(req.input, '', []))
         // if (ver >= 10.3) {
         //     let tb1 = 'VIEW_USERS', tb2 = 'VIEW_USERS_OLD';
         //     user = _.head(await seq.query(`
@@ -715,7 +715,7 @@ exports.moveToUsers = async function (req, res, next) {
         //             // console.log('is_data1',user.length)
 
         //     }else{
-                
+
         //         user = collect(user).forPage(req.input.page,req.input.limit).all()
         //         // console.log('is_data2')
         //     }
@@ -732,27 +732,27 @@ exports.moveToUsers = async function (req, res, next) {
 
         // }
         user = await help.query('VIEW_USERS')
-            .where('DEPARTMENT_CODE',req.input.code)
+            .where('DEPARTMENT_CODE', req.input.code)
 
             .limit(req.input.limit)
             .params(req.input)
-            .toJson({offset:((req.input.page-1)*req.input.limit)})
+            .toJson({ offset: ((req.input.page - 1) * req.input.limit) })
         let totle = user.length
         // let datalength = 0
         // Bar.init(totle)
         // var password = bcrypt.hash('123456')
         for (let row of user) {
             //group
-            var gender = help.get(row,'TITLE',null);
-            var genderBy = gender=='นาย'?'m':'f';
-            var userTypes = row.USER_TYPE == 1?'ข้าราชการ':'บุคลากร กทม.'
-            if(row.USER_TYPE==1){
+            var gender = help.get(row, 'TITLE', null);
+            var genderBy = gender == 'นาย' ? 'm' : 'f';
+            var userTypes = row.USER_TYPE == 1 ? 'ข้าราชการ' : 'บุคลากร กทม.'
+            if (row.USER_TYPE == 1) {
                 userTypes = 'ข้าราชการ'
             }
-            if(row.USER_TYPE==2){
+            if (row.USER_TYPE == 2) {
                 userTypes = 'บุคลากร กทม.'
             }
-            if(row.USER_TYPE==6){
+            if (row.USER_TYPE == 6) {
                 userTypes = 'บุคลากรทั่วไป'
             }
             if (help.empty(row.DEPARTMENT_CODE) && help.empty(row.DIVISION_CODE) && help.empty(row.SECTION_CODE) && help.empty(row.JOB_CODE)) {
@@ -833,7 +833,7 @@ exports.moveToUsers = async function (req, res, next) {
                             ])).createUpdate({
                                 status: 1,
                                 roleId: 3,
-                                lang: 'en', 
+                                lang: 'en',
                                 gender: genderBy,
                                 prefix: row.TITLE,
                                 name: row.FIRST_NAME,
@@ -885,14 +885,14 @@ exports.moveToUsers = async function (req, res, next) {
                             'ระดับต้น', 'ระดับสูง', 'ระดับทรงคุณวุฒิ', 'ระดับเชี่ยวชาญ', 'ระดับชำนาญการพิเศษ', 'ระดับชำนาญการ', 'ระดับปฏิบัติการ', 'ระดับทักษะพิเศษ', 'ระดับอาวุโส', 'ระดับชำนาญงาน', 'ระดับปฏิบัติงาน'
                         ]
                         let rank = _.indexOf(rankSet, `ระดับ${tang.MP_CEE_POSITION}`) >= 0 ? `ระดับ${tang.MP_CEE_POSITION}` : 'ระดับต้น'
-                        let $isManager = _.indexOf(isManager,row.ID_CARD)>=0?'true':'false'
+                        let $isManager = _.indexOf(isManager, row.ID_CARD) >= 0 ? 'true' : 'false'
                         let orgUser = await help.query('ml_organization_user')
                             .where('isAdmin', 'false')
                             .where('userId', users.id)
                             .where('groupId', group.id)
                             .createUpdate(
                                 {
-                                    userId: users.id, groupId: group.id, positionId: orgPosition.id, rank,isManager: $isManager, isAdmin: 'false', isScreener: 'false', codeOrg: group.code, organizationManagerId: 0
+                                    userId: users.id, groupId: group.id, positionId: orgPosition.id, rank, isManager: $isManager, isAdmin: 'false', isScreener: 'false', codeOrg: group.code, organizationManagerId: 0
                                 }
                             )
                     }
@@ -1051,87 +1051,87 @@ exports.syncAll = async function (req, res, next) {
         }
         if (!help.empty(UsersStatus)) {
             let DEPARTMENTALL = await help.query('VIEW_USERS_DEPARTMENT')
-            // .where('DEPARTMENT_CODE',21)//set sync by DEPARTMENT
-            .toJson()
+                // .where('DEPARTMENT_CODE',21)//set sync by DEPARTMENT
+                .toJson()
             for (let $department of DEPARTMENTALL) {
-                let countUser = await help.query('VIEW_USERS').where('DEPARTMENT_CODE',$department.DEPARTMENT_CODE).count()
+                let countUser = await help.query('VIEW_USERS').where('DEPARTMENT_CODE', $department.DEPARTMENT_CODE).count()
                 let setItems = 50
                 let avgCeil = Math.ceil(countUser / setItems)
                 console.log(`sync_user_by => ${$department.DEPARTMENT_NAME} (${countUser})`)
                 // console.log(countUser)
                 let user = await help.query('VIEW_USERS')
-                    .where('DEPARTMENT_CODE','21')
-                    .toJson(); 
-                user = collect(user).map(r=>{
+                    .where('DEPARTMENT_CODE', '21')
+                    .toJson();
+                user = collect(user).map(r => {
                     r.code = _.join([
-                        help.get(r,'DEPARTMENT_CODE','00'),
-                        help.get(r,'DIVISION_CODE','00'),
-                        help.get(r,'SECTION_CODE','00'),
-                        help.get(r,'JOB_CODE','00')
-                    ],'.')
+                        help.get(r, 'DEPARTMENT_CODE', '00'),
+                        help.get(r, 'DIVISION_CODE', '00'),
+                        help.get(r, 'SECTION_CODE', '00'),
+                        help.get(r, 'JOB_CODE', '00')
+                    ], '.')
                     r.isManager = false;
                     return r
-                    })
+                })
                     .groupBy('code')
-                    .map((r,k)=>{
-                    let items = r.items
-                    let max = collect(items).max('MP_CEE')
-                    let lan = collect(items).where('MP_CEE',`${max}`).count()
-                    items = collect(items).map(i=>{
-                        if(max==i.MP_CEE&&lan==1){
-                        i.isManager = true;
-                        }
-                        return i;
-                    }).all()
-                
-                    return { code:collect(_.head(items)).only(['DEPARTMENT_CODE','DIVISION_CODE','SECTION_CODE','JOB_CODE']).all(),hasManager:lan==1,list:items }
+                    .map((r, k) => {
+                        let items = r.items
+                        let max = collect(items).max('MP_CEE')
+                        let lan = collect(items).where('MP_CEE', `${max}`).count()
+                        items = collect(items).map(i => {
+                            if (max == i.MP_CEE && lan == 1) {
+                                i.isManager = true;
+                            }
+                            return i;
+                        }).all()
+
+                        return { code: collect(_.head(items)).only(['DEPARTMENT_CODE', 'DIVISION_CODE', 'SECTION_CODE', 'JOB_CODE']).all(), hasManager: lan == 1, list: items }
                     })
                     .values()
                     .all()
-                    let notHasManager = collect(user).filter(r=>{
+                let notHasManager = collect(user).filter(r => {
                     return !r.hasManager
-                    }).all() || []
-                    // notManager.push(notHasManager)
+                }).all() || []
+                // notManager.push(notHasManager)
 
-                    user = collect(user).pluck('list').collapse()
-                    .filter(r=>{
-                    return r.isManager
+                user = collect(user).pluck('list').collapse()
+                    .filter(r => {
+                        return r.isManager
                     })
                     .pluck('ID_CARD')
                     .all()
                 // Bar.init(countUser)
                 for (let index = 1; index <= avgCeil; index++) {
-                    await $this.moveToUsers({ input: { code:$department.DEPARTMENT_CODE, page: index, limit: setItems, managet: user } })
+                    await $this.moveToUsers({ input: { code: $department.DEPARTMENT_CODE, page: index, limit: setItems, managet: user } })
                 }
                 console.log("\n")
                 console.log(`sync_user_success`)
-                
+
             }
             console.log("\n")
             console.log(`sync finished ${moment().format('DD-MM-YY HH:mm:ss')}`)
-            if(moment().format('DD')==setDay){
-                let chkDisable  = _.head(await seq.query(`
+            if (moment().format('DD') == setDay) {
+                let chkDisable = _.head(await seq.query(`
                 (SELECT ID_CARD FROM VIEW_USERS_OLD)
                 EXCEPT
                 (SELECT ID_CARD FROM VIEW_USERS)
                 `))
-                chkDisable = help.pluck(chkDisable,'ID_CARD')
-                if(!help.empty(chkDisable)){
-                  chkDisable = await help.query('ml_user').where('empCode',chkDisable).except(["createdAt","updatedAt","password","forgotPass"]).toJson()
+                chkDisable = help.pluck(chkDisable, 'ID_CARD')
+                if (!help.empty(chkDisable)) {
+                    chkDisable = await help.query('ml_user').where('empCode', chkDisable).except(["createdAt", "updatedAt", "password", "forgotPass"]).toJson()
                 }
             }
-//             console.log(`moveToUsers:start`);
-//             let countUser = await help.query('VIEW_USERS').count()
-//             let setItems = 50
-//             let avgCeil = Math.ceil(countUser / setItems)
+            //             console.log(`moveToUsers:start`);
+            //             let countUser = await help.query('VIEW_USERS').count()
+            //             let setItems = 50
+            //             let avgCeil = Math.ceil(countUser / setItems)
 
-// // await $this.moveToUsers({ input: { page: 1, limit: 12 } })
-//             Bar.init(countUser)
-//             for (let index = 1; index <= avgCeil; index++) {
-//                 await $this.moveToUsers({ input: { page: index, limit: setItems } })
-//                 // Bar.update(index)
-//             }
-//             console.log(`moveToUsers:true`);
+            // // await $this.moveToUsers({ input: { page: 1, limit: 12 } })
+            //             Bar.init(countUser)
+            //             for (let index = 1; index <= avgCeil; index++) {
+            //                 await $this.moveToUsers({ input: { page: index, limit: setItems } })
+            //                 // Bar.update(index)
+            //             }
+            //             console.log(`moveToUsers:true`);
         }
 
         if (nonres) {
